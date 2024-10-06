@@ -1,6 +1,7 @@
 import localFont from 'next/font/local'
 import './globals.css'
 import Footer from '@/components/organisms/Footer'
+import Navbar from '@/components/organisms/Navbar'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -20,10 +21,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang='en' className='scroll-smooth'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>

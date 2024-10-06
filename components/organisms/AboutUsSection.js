@@ -5,7 +5,7 @@ export default function AboutSection() {
     <section className='py-20 bg-[#f0f0f0]'>
       <div className='container mx-auto px-4'>
         <Heading level={1} className='text-center mb-8 '>
-          <h1 className='text-blue-400'>Not another run club..</h1>
+          Not another run club..
         </Heading>
         <div className='grid md:grid-cols-2 gap-12 items-center text-blue-700'>
           <div>

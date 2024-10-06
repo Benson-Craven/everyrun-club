@@ -8,7 +8,7 @@ export default function PaceSection() {
       pace: '7:00-8:00 /km',
       description:
         'Perfect for beginners and those who enjoy a conversational pace.',
-      icon: '/images/icons/pace-beginner.svg',
+      icon: '/videos/hero-running.mp4',
     },
     {
       title: 'Steady Runners',
@@ -26,7 +26,7 @@ export default function PaceSection() {
 
   return (
     <section className='py-20'>
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto px-4 max-w-6xl'>
         <Heading level={2} className='text-center mb-12'>
           Find Your Pace
         </Heading>
