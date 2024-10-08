@@ -9,7 +9,7 @@ export default function Home() {
     <main className='bg-[#f0f0f0]'>
       <HeroSection />
       <AboutSection />
-      <PaceSection />
+      {/* <PaceSection /> */}
       <BentoGrid />
       <LocationsSection />
     </main>

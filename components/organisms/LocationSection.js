@@ -5,21 +5,21 @@ export default function LocationsSection() {
   const locations = [
     {
       name: 'The Tan Track',
-      image: '/images/locations/tan-track.jpg',
+      image: '/images/logos/full-logo.png',
       distance: '3.8km',
       difficulty: 'Moderate',
       time: 'Tue/Thu 6am',
     },
     {
       name: 'Albert Park Lake',
-      image: '/images/locations/albert-park.jpg',
+      image: '/images/logos/full-logo.png',
       distance: '5km',
       difficulty: 'Easy',
       time: 'Sat 7am',
     },
     {
       name: 'Botanical Gardens',
-      image: '/images/locations/botanical-gardens.jpg',
+      image: '/images/logos/full-logo.png',
       distance: '4.2km',
       difficulty: 'Easy-Moderate',
       time: 'Wed 5:30pm',

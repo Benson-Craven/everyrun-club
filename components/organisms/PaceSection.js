@@ -8,19 +8,19 @@ export default function PaceSection() {
       pace: '7:00-8:00 /km',
       description:
         'Perfect for beginners and those who enjoy a conversational pace.',
-      icon: '/videos/hero-running.mp4',
+      icon: '/images/logos/full-logo.png',
     },
     {
       title: 'Steady Runners',
       pace: '5:30-6:30 /km',
       description: 'For those looking to improve their endurance and speed.',
-      icon: '/images/icons/pace-intermediate.svg',
+      icon: '/images/logos/full-logo.png',
     },
     {
       title: 'Speed Demons',
       pace: '4:00-5:00 /km',
       description: 'Challenging pace for experienced runners.',
-      icon: '/images/icons/pace-advanced.svg',
+      icon: '/images/logos/full-logo.png',
     },
   ]
 

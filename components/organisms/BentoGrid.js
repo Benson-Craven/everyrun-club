@@ -1,4 +1,17 @@
+'use client'
+
 import { Video, Music, Camera, Users, Trophy, Calendar } from 'lucide-react'
+import { useSpring, animated } from 'react-spring'
+
+function Number({ n }) {
+  const { number } = useSpring({
+    from: { number: 0 },
+    number: n,
+    delay: 200,
+    config: { mass: 1, tension: 20, friction: 10 },
+  })
+  return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>
+}
 
 export default function BentoGrid() {
   return (
@@ -74,7 +87,11 @@ export default function BentoGrid() {
             </h3>
             <div className='grid grid-cols-2 gap-4 mt-2'>
               <div>
-                <p className='text-2xl font-bold text-emerald-700'>500+</p>
+                {/* <p className='text-2xl font-bold text-emerald-700'> */}
+                <h1 className='text-2xl font-bold text-emerald-700 flex'>
+                  <Number n={1000} />+
+                </h1>
+
                 <p className='text-sm text-emerald-600'>Active Runners</p>
               </div>
               <div>
@@ -86,7 +103,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Achievements */}
-        <div className='bg-blue-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-blue-200 transition-all'>
+        <div className='bg-everyRunBlue rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all'>
           <Trophy className='w-6 h-6 text-blue-600' />
           <div>
             <h3 className='text-lg font-semibold text-blue-900 mt-4'>

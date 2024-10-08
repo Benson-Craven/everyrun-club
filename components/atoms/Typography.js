@@ -1,4 +1,4 @@
-export default function Heading({ children, level = 1 }) {
+export default function Heading({ children, level = 1, colour }) {
   const Tag = `h${level}`
   const sizes = {
     1: 'text-4xl md:text-8xl',
@@ -6,5 +6,9 @@ export default function Heading({ children, level = 1 }) {
     3: 'text-2xl md:text-4xl',
   }
 
-  return <Tag className={`${sizes[level]} font-bold mb-4`}>{children}</Tag>
+  return (
+    <Tag className={`${sizes[level]} font-bold mb-4`} style={{ color: colour }}>
+      {children}
+    </Tag>
+  )
 }
