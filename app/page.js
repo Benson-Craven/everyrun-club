@@ -3,6 +3,7 @@ import HeroSection from '@/components/organisms/HeroSection'
 import LocationsSection from '@/components/organisms/LocationSection'
 import PaceSection from '@/components/organisms/PaceSection'
 import BentoGrid from '@/components/organisms/BentoGrid'
+import FAQ from '@/components/organisms/FAQSection'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       {/* <PaceSection /> */}
       <BentoGrid />
       <LocationsSection />
+      <FAQ />
     </main>
   )
 }

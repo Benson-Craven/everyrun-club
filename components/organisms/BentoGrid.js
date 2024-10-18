@@ -19,6 +19,7 @@ export default function BentoGrid() {
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto'>
         {/* Large feature box */}
         <div className='md:col-span-2 row-span-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'>
+          {' '}
           <div>
             <Video className='w-8 h-8 mb-4' />
             <h2 className='text-2xl font-bold mb-2'>Featured Content</h2>
@@ -33,7 +34,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Music Integration */}
-        <div className='bg-rose-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-rose-200 transition-all'>
+        <div className='bg-rose-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-rose-200 transition-all transition-transform hover:scale-[1.02]'>
           <Music className='w-6 h-6 text-rose-600' />
           <div>
             <h3 className='text-lg font-semibold text-rose-900 mt-4'>
@@ -45,7 +46,7 @@ export default function BentoGrid() {
           </div>
         </div>
 
-        <div className='relative overflow-hidden rounded-xl aspect-square group'>
+        <div className='relative overflow-hidden rounded-xl aspect-square group transition-transform hover:scale-[1.02]'>
           <video
             autoPlay
             loop
@@ -57,16 +58,16 @@ export default function BentoGrid() {
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6'>
             <h3 className='text-lg font-semibold text-white'>
-              Wednesday Warriors
+              Fancy more of a challenge?
             </h3>
             <p className='text-sm text-gray-200'>
-              Join our weekday morning runs
+              Join our more intense Wednesday group runs
             </p>
           </div>
         </div>
 
         {/* Photo Gallery */}
-        <div className='bg-amber-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-amber-200 transition-all'>
+        <div className='bg-amber-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-amber-200 transition-all  hover:scale-[1.02]'>
           <Camera className='w-6 h-6 text-amber-600' />
           <div>
             <h3 className='text-lg font-semibold text-amber-900 mt-4'>
@@ -79,7 +80,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Community Stats */}
-        <div className='md:col-span-2 bg-emerald-100 rounded-xl p-6 flex flex-col justify-between hover:bg-emerald-200 transition-all'>
+        <div className='md:col-span-2 bg-emerald-100 rounded-xl p-6 flex flex-col justify-between hover:bg-emerald-200 transition-all  hover:scale-[1.02]'>
           <Users className='w-6 h-6 text-emerald-600' />
           <div>
             <h3 className='text-lg font-semibold text-emerald-900 mt-4'>
@@ -103,7 +104,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Achievements */}
-        <div className='bg-everyRunBlue rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all'>
+        <div className='bg-everyRunBlue rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all  hover:scale-[1.02]'>
           <Trophy className='w-6 h-6 text-blue-600' />
           <div>
             <h3 className='text-lg font-semibold text-blue-900 mt-4'>
@@ -116,7 +117,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Events Calendar */}
-        <div className='md:col-span-2 bg-violet-100 rounded-xl p-6 flex flex-col justify-between hover:bg-violet-200 transition-all'>
+        <div className='md:col-span-2 bg-violet-100 rounded-xl p-6 flex flex-col justify-between hover:bg-violet-200 transition-all  hover:scale-[1.02]'>
           <Calendar className='w-6 h-6 text-violet-600' />
           <div>
             <h3 className='text-lg font-semibold text-violet-900 mt-4'>

@@ -33,7 +33,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [prevScrollPos])
 
-  const navbarClassName = `duration-700 fixed top-0 left-0 right-0  shadow-sm z-50 pt-[40px]  top-0 z-50 flex items-center justify-between bg-transparent  transition-transform      ${
+  const navbarClassName = `duration-700 fixed top-0 left-0 right-0   z-50 pt-[40px]  top-0 z-50 flex items-center justify-between bg-transparent  transition-transform      ${
     visible ? 'translate-y-0' : '-translate-y-full'
   } `
 

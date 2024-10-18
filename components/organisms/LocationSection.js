@@ -27,10 +27,10 @@ export default function LocationsSection() {
   ]
 
   return (
-    <section className='py-20 bg-gray-50'>
-      <div className='container mx-auto px-4'>
-        <Heading level={2} className='text-center mb-12'>
-          Our Running Spots
+    <section className='py-20 bg-[#f0f0f0]'>
+      <div className='container mx-auto px-6'>
+        <Heading level={2} className='text-center mb-12' colour={'#FF893A'}>
+          Some of our Top Running Spots
         </Heading>
         <div className='grid md:grid-cols-3 gap-8'>
           {locations.map((location) => (
