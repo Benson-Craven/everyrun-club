@@ -55,6 +55,14 @@ export default function Footer() {
                 alt='Melbourne Run Club'
                 className='h-32 '
               />
+
+              <p className='text-sm'>
+                EveryRun Club acknowledges the Traditional Custodians, and
+                Elders past, present and future, of the lands on which we work,
+                live and run, and further acknowledge, thank and pay respect to
+                the Traditional Owners of the land in the multitude of
+                Aboriginal countries across Australia and other nations.
+              </p>
             </div>
 
             <SocialLinks />

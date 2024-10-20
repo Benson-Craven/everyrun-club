@@ -7,7 +7,10 @@ export default function Heading({ children, level = 1, colour }) {
   }
 
   return (
-    <Tag className={`${sizes[level]} font-bold mb-4`} style={{ color: colour }}>
+    <Tag
+      className={`${sizes[level]} font-bold mb-4 tracking-tight`}
+      style={{ color: colour }}
+    >
       {children}
     </Tag>
   )

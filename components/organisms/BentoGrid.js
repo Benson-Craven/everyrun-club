@@ -1,6 +1,18 @@
 'use client'
 
-import { Video, Music, Camera, Users, Trophy, Calendar } from 'lucide-react'
+import {
+  Video,
+  Music,
+  Camera,
+  Users,
+  Trophy,
+  Calendar,
+  WholeWordIcon,
+  Pin,
+  Map,
+  Weight,
+  Dumbbell,
+} from 'lucide-react'
 import { useSpring, animated } from 'react-spring'
 
 function Number({ n }) {
@@ -34,7 +46,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Music Integration */}
-        <div className='bg-rose-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-rose-200 transition-all transition-transform hover:scale-[1.02]'>
+        <div className='bg-rose-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-rose-200 transition-all  hover:scale-[1.02]'>
           <Music className='w-6 h-6 text-rose-600' />
           <div>
             <h3 className='text-lg font-semibold text-rose-900 mt-4'>
@@ -46,7 +58,7 @@ export default function BentoGrid() {
           </div>
         </div>
 
-        <div className='relative overflow-hidden rounded-xl aspect-square group transition-transform hover:scale-[1.02]'>
+        <div className='relative overflow-hidden rounded-xl aspect-square flex flex-col justify-between group transition-transform hover:scale-[1.02]'>
           <video
             autoPlay
             loop
@@ -56,13 +68,17 @@ export default function BentoGrid() {
             alt='Group Run'
             className='object-cover w-full h-full transition-transform group-hover:scale-105'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6'>
-            <h3 className='text-lg font-semibold text-white'>
-              Fancy more of a challenge?
-            </h3>
-            <p className='text-sm text-gray-200'>
-              Join our more intense Wednesday group runs
-            </p>
+          <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-between p-6'>
+            <Dumbbell className='w-6 h-6 text-white' />
+            <div>
+              {' '}
+              <h3 className='text-lg font-semibold text-white'>
+                Fancy more of a challenge?
+              </h3>
+              <p className='text-sm text-gray-200'>
+                Join our more intense Wednesday group runs
+              </p>
+            </div>
           </div>
         </div>
 
@@ -96,22 +112,25 @@ export default function BentoGrid() {
                 <p className='text-sm text-emerald-600'>Active Runners</p>
               </div>
               <div>
-                <p className='text-2xl font-bold text-emerald-700'>50km</p>
-                <p className='text-sm text-emerald-600'>Weekly Average</p>
+                <p className='text-2xl font-bold text-emerald-700 flex'>
+                  <Number n={5000} />
+                  km
+                </p>
+                <p className='text-sm text-emerald-600'>Total Run Distance</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Achievements */}
-        <div className='bg-everyRunBlue rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all  hover:scale-[1.02]'>
-          <Trophy className='w-6 h-6 text-blue-600' />
+        <div className='bg-everyRunBlue hover:bg-everyRunBlue/80 rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all  hover:scale-[1.02]'>
+          <Map className='w-6 h-6 text-blue-600' />
           <div>
             <h3 className='text-lg font-semibold text-blue-900 mt-4'>
-              Achievements
+              Locations
             </h3>
             <p className='text-blue-700 text-sm mt-1'>
-              Unlock badges and rewards
+              See where we love to run across Melbourne
             </p>
           </div>
         </div>

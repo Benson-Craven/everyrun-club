@@ -1,6 +1,6 @@
 export default function Button({ children, variant = 'primary', ...props }) {
   const styles = {
-    primary: 'bg-red-600 hover:bg-red-700 text-white',
+    primary: 'bg-everyRunOrange hover:bg-everyRunOrange/90 text-white',
     secondary: 'border-2 border-white hover:bg-white hover:text-black',
   }
 

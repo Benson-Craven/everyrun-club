@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className='antialiased font-leagueSpartan'>
+      <body className='antialiased font-leagueSpartan scroll-smooth'>
         <Navbar />
         {children}
         <Footer />
