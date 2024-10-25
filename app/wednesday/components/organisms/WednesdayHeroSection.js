@@ -1,24 +1,19 @@
 'use client'
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Button from '../atoms/Button'
-import Heading from '../atoms/Typography'
+import Button from '../../../../components/atoms/Button'
+import Heading from '../../../../components/atoms/Typography'
 
 const messages = [
   {
     id: 1,
-    title: 'EveryRun Melbourne',
-    subtitle: 'Not just a run club',
+    title: 'Fancy more of a challenge?',
+    subtitle: 'Come along and join us on a Wednesday night!',
   },
   {
     id: 2,
     title: 'Join Our Community',
     subtitle: 'Come along and join us.',
-  },
-  {
-    id: 3,
-    title: 'Run Melbourne',
-    subtitle: 'Every step brings us closer.',
   },
 ]
 
@@ -94,9 +89,9 @@ export default function HeroSection() {
                 <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
                   {message.subtitle}
                 </p>
-                {index === 2 ? (
+                {index === 1 ? (
                   <div className='flex flex-col sm:flex-row gap-4'>
-                    <Button>Join Now</Button>
+                    <Button>Where to?</Button>
                     <Button variant='secondary'>View Events</Button>
                   </div>
                 ) : null}

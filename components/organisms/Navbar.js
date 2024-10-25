@@ -10,6 +10,7 @@ import {
   Medal,
   ChevronDown,
 } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -47,14 +48,15 @@ export default function Navbar() {
       <div className='container mx-6 md:mx-auto px-4 bg-white rounded-3xl shadow-sm'>
         <div className='flex justify-between items-center h-16'>
           {/* Logo */}
-          <div className='flex-shrink-0 flex items-center'>
-            <img
-              src={'/images/logos/logo.svg'}
-              alt={'EveryRunClub'}
-              className='w-28 h-28 '
-            />
-          </div>
-
+          <Link href='/'>
+            <div className='flex-shrink-0 flex items-center cursor-pointer'>
+              <img
+                src={'/images/logos/logo.svg'}
+                alt={'EveryRunClub'}
+                className='w-28 h-28 '
+              />
+            </div>
+          </Link>
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center space-x-4'>
             <div className='flex space-x-4'>
@@ -114,13 +116,6 @@ export default function Navbar() {
               >
                 <Users className='w-4 h-4' />
                 <span>Community</span>
-              </a>
-              <a
-                href='#'
-                className='flex items-center space-x-1 text-gray-600 hover:text-everyRunOrange px-3 py-2 rounded-md text-sm font-medium'
-              >
-                <Medal className='w-4 h-4' />
-                <span>Achievements</span>
               </a>
             </div>
 

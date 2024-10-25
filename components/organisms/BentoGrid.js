@@ -5,12 +5,8 @@ import {
   Music,
   Camera,
   Users,
-  Trophy,
   Calendar,
-  WholeWordIcon,
-  Pin,
   Map,
-  Weight,
   Dumbbell,
 } from 'lucide-react'
 import { useSpring, animated } from 'react-spring'
@@ -27,7 +23,7 @@ function Number({ n }) {
 
 export default function BentoGrid() {
   return (
-    <div className='container mx-auto p-4 '>
+    <div className='container mx-auto p-4 mt-10'>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto'>
         {/* Large feature box */}
         <div className='md:col-span-2 row-span-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'>
@@ -106,14 +102,14 @@ export default function BentoGrid() {
               <div>
                 {/* <p className='text-2xl font-bold text-emerald-700'> */}
                 <h1 className='text-2xl font-bold text-emerald-700 flex'>
-                  <Number n={1000} />+
+                  {/* <Number n={1000} />+ */}
                 </h1>
 
                 <p className='text-sm text-emerald-600'>Active Runners</p>
               </div>
               <div>
                 <p className='text-2xl font-bold text-emerald-700 flex'>
-                  <Number n={5000} />
+                  {/* <Number n={5000} /> */}
                   km
                 </p>
                 <p className='text-sm text-emerald-600'>Total Run Distance</p>

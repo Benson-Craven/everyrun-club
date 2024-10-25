@@ -3,22 +3,18 @@ import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../atoms/Button'
 import Heading from '../atoms/Typography'
+import Link from 'next/link'
 
 const messages = [
   {
     id: 1,
-    title: 'EveryRun Melbourne',
-    subtitle: 'Not just a run club',
+    title: 'Fancy more of a challenge?',
+    subtitle: 'Come and join us on a Wednesday',
   },
   {
     id: 2,
-    title: 'Join Our Community',
-    subtitle: 'Come along and join us.',
-  },
-  {
-    id: 3,
-    title: 'Run Melbourne',
-    subtitle: 'Every step brings us closer.',
+    title: 'Push yourself with the team',
+    subtitle: 'Be part of something extraordinary',
   },
 ]
 
@@ -26,9 +22,11 @@ const VideoBackground = ({ children }) => {
   const videoRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: videoRef,
-    offset: ['start start', 'end start'],
+    offset: ['start end', 'end start'],
   })
-  const scale = useTransform(scrollYProgress, [0.2, 1], [1, 0.85])
+
+  // Start small (0.85), expand to 1.15, then contract back to 0.85
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1, 0.85])
 
   return (
     <div
@@ -77,7 +75,7 @@ export default function HeroSection() {
           const y = useTransform(
             scrollYProgress,
             [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
-            [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
+            [index === 0 ? '0px' : '20vh', '0px', '0px', '-20vh']
           )
 
           return (
@@ -94,10 +92,11 @@ export default function HeroSection() {
                 <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
                   {message.subtitle}
                 </p>
-                {index === 2 ? (
+                {index === 1 ? (
                   <div className='flex flex-col sm:flex-row gap-4'>
-                    <Button>Join Now</Button>
-                    <Button variant='secondary'>View Events</Button>
+                    <Link href='/wednesday'>
+                      <Button variant='primary'>Find Out More</Button>
+                    </Link>
                   </div>
                 ) : null}
               </motion.div>

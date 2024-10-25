@@ -3,35 +3,19 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
-/**
- * A component that renders a video background.
- *
- * The video is scaled based on the scroll position of the container.
- * When the user scrolls down, the video becomes smaller.
- **/
-export default function VideoBackgroundComponent() {
+export default function VideoBackgroundComponent({
+  videoSrc,
+  scaleRange = [1, 0.85],
+  children,
+}) {
   const videoContainerRef = useRef(null)
 
   const { scrollYProgress } = useScroll({
-    /**
-     * The element to track the scroll position of.
-     */
     target: videoContainerRef,
-    /**
-     * The range of scroll positions to track.
-     * The first value is the start of the range, and the second value is the end of the range.
-     * The video is scaled based on the scroll position within this range.
-     */
     offset: ['start start', 'end start'],
   })
 
-  /**
-   * The scale of the video based on the scroll position.
-   * The scale is transformed from the scroll position using the `useTransform` hook.
-   * The first value is the start of the range, and the second value is the end of the range.
-   * The scale is linearly interpolated between the start and end values.
-   */
-  const videoScale = useTransform(scrollYProgress, [0.2, 1], [1, 0.85])
+  const videoScale = useTransform(scrollYProgress, [0.2, 1], scaleRange)
 
   return (
     <div
@@ -46,12 +30,14 @@ export default function VideoBackgroundComponent() {
           playsInline
           className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
         >
-          <source src='/videos/hero-running.mp4' type='video/mp4' />
+          <source src={videoSrc} type='video/mp4' />
         </video>
       </motion.div>
+      {children && <div className='absolute inset-0'>{children}</div>}
     </div>
   )
 }
+
 {
   /* Timer */
 }

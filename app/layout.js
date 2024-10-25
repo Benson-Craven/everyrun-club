@@ -3,7 +3,7 @@ import Footer from '@/components/organisms/Footer'
 import Navbar from '@/components/organisms/Navbar'
 
 export const metadata = {
-  title: 'Everyrun Club',
+  title: 'EveryRun Melbourne',
   description: 'Join the community. Find your pace.',
 }
 

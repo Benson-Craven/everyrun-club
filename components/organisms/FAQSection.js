@@ -11,44 +11,40 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'Will there be merch?',
-      answer: 'Come shopping. View our range.',
-      link: 'https://www.everyrunclub.com/shop/',
+      question: 'Where do we run?',
+      answer:
+        'Our locations change every week, so you never get bored of where you’re running. We have some favourite spots that we like to hit up, but keep an eye on our socials to see where we’re running next.',
     },
     {
-      question: 'Any plans for another day/route?',
+      question: 'How far do we run?',
       answer:
-        "Absolutely, we're just getting started. If you think you suit the mould and want to host a run in a new location, please reach out.",
+        'Our usual 9:30am run is never more than 5km, and we usually have a route that allows you to do a bit less if you’re not feeling the full 5km. We do offer a long(er) run option that is between 7-10km at a 6min/km pace. These guys usually meet a bit earlier but you’ll find all that info on our IG page.',
     },
     {
-      question: "What made you start EveryRun Club? What's the founding story?",
-      answer:
-        'We started a group of running enthusiasts in 2020. We are a community of passionate individuals who believe in the power of running to transform lives.',
+      question: 'How do I join?',
+      answer: 'You just have to come along to one of our runs. That’s it!',
+      link: '',
     },
     {
-      question: 'How often do you run?',
+      question: 'Where do you meet on Wednesday nights?',
       answer:
-        'Every Tuesday, Thursday and Saturday. We take Monday, Wednesday and Friday off.',
+        'We meet at Olympic Park Oval. Starting at 7pm so make sure to arrive a little bit before for some pre-sesh chats.',
+      link: 'https://www.google.com/maps/place/Olympic+Park+Oval/@-37.8246977,144.97876,750m/data=!3m2!1e3!4b1!4m6!3m5!1s0x6ad64293919671ab:0xcb04a013a0cf6c4c!8m2!3d-37.8246977!4d144.9813349!16s%2Fg%2F11c60nc9qd?entry=ttu&g_ep=EgoyMDI0MTAyMS4xIKXMDSoASAFQAw%3D%3D',
     },
     {
-      question: 'Do you have a pace group for beginners?',
+      question: 'Can anyone join?',
       answer:
-        'Yes, we have a pace group for beginners. They are led by experienced runners who are happy to help you get started.',
+        'We’re the run club for EVERYONE. We don’t care about PBs around here (although we will celebrate you and your achievements ofc) but we’re just here to meet some new people and have some fun. All fitness levels are welcome at EveryRun.',
     },
     {
-      question: 'What time do you run?',
+      question: 'Can dogs join the run?',
       answer:
-        'We run at 6:00 AM on Tuesday, Thursday and Saturday. We recommend arriving 15 minutes before the start time.',
+        'If there’s anything we love more than run club, it’s run club doggos. Just make sure they’re good around people (and swans - we’ve had a few dogs jump into Alber Park lake chasing the swans before) and just be mindful of them in a crowded space where not everyone might be the biggest fan.',
     },
     {
-      question: 'What are the distance of the runs?',
+      question: 'MERCH MERCH MERCH?',
       answer:
-        'Our runs vary in distance from 5-10 kilometers. We will let you know the distance of the run when we post the route.',
-    },
-    {
-      question: 'What should I wear?',
-      answer:
-        'Wear comfortable running shoes and clothes that you feel comfortable running in. We also recommend bringing water and a towel.',
+        'You guys went crazy for our first drop!! But you didn’t think we’d stop there? We’ve got some very exciting announcements coming sooner than you think!',
     },
   ]
 
@@ -64,14 +60,17 @@ const FAQ = () => {
             questions we get asked a lot - and some answers to get you started.
           </p>
           <p className='text-gray-600'>
-            If you're still curious, jump over to Instagram and flick us a DM.
-            We'll slide one back your way when we return from our run.
+            If you're still looking, head on over to Instagram and chuck us a
+            message.
           </p>
         </div>
         <div>
           <div className='space-y-4'>
             {faqs.map((faq, index) => (
-              <div key={index} className='border-b border-gray-300'>
+              <div
+                key={index}
+                className='border-b border-gray-300 cursor-pointer'
+              >
                 <button
                   onClick={() => toggleAccordion(index)}
                   className='w-full text-left py-3 text-lg text-gray-800 focus:outline-none flex justify-between items-center'
@@ -102,7 +101,7 @@ const FAQ = () => {
                       <p className='text-gray-600'>{faq.answer}</p>
                       {faq.link && (
                         <a href={faq.link} className='text-blue-500 underline'>
-                          View our range
+                          How do I get there?
                         </a>
                       )}
                     </div>
