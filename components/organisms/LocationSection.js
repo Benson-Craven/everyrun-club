@@ -62,7 +62,7 @@ const RunClubFeatures = () => {
         </Heading>
       </motion.div>
 
-      <div className='max-w-4xl mx-auto px-4  p-5   z-40'>
+      <div className='max-w-4xl mx-auto px-4 p-5 z-40'>
         {[
           {
             title: 'Fawkner Park',

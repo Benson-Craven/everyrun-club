@@ -1,7 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { CheckCircle } from 'lucide-react'
+import { Dumbbell } from 'lucide-react'
 import Heading from '../atoms/Typography'
 import { useSpring, animated } from 'react-spring'
 
@@ -42,18 +42,18 @@ export default function AboutSection() {
     <div ref={containerRef} className='relative h-[200vh]'>
       {/* First Section */}
       <motion.div
-        className='max-w-4xl mx-auto px-4 py-12 flex flex-col gap-6 sticky h-screen top-0 z-10 items-center justify-center'
+        className='max-w-4xl mx-auto px-4 py-12 flex flex-col gap-6 sticky h-screen top-0 z-10 items-center justify-center text-center'
         style={{
           scale: headerScale,
           opacity: headerOpacity,
         }}
       >
         <Heading level={1} colour='#000000'>
-          We are not{' '}
+          We're not{' '}
           <span className='text-everyRunOrange'>just a run club.</span>
         </Heading>
 
-        <div className='relative mx-auto flex items-center aspect-video h-36 w-36 mb-6'>
+        <div className='relative mx-auto flex items-center aspect-video h-36 w-64 mb-6'>
           <div className='w-full h-full rounded-3xl overflow-hidden bg-gray-100 relative'>
             <video
               className='w-full h-full object-cover'
@@ -64,7 +64,7 @@ export default function AboutSection() {
               src='/videos/hero-running.mp4'
             />
             <div className='absolute top-2 right-2 bg-black bg-opacity-50 rounded-full p-3'>
-              <CheckCircle className='w-6 h-6 text-white' strokeWidth={1.5} />
+              <Dumbbell className='w-6 h-6 text-white' strokeWidth={1.5} />
             </div>
           </div>
         </div>
@@ -75,27 +75,29 @@ export default function AboutSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Your privacy is our priority. With{' '}
-          <span className='text-black font-medium'>end-to-end encryption,</span>{' '}
-          you can be sure that your personal messages stay between you and who
-          you send them to.
+          Our running community is more than just a group of runners. With{' '}
+          <span className='text-black font-medium'>EveryRun Melbourne,</span>{' '}
+          we're a hub for everyone.
         </motion.p>
       </motion.div>
 
       {/* Second Section */}
       <motion.div
-        className='max-w-4xl mx-auto px-4 py-12 flex flex-col gap-6 sticky h-screen top-0 z-20 items-center justify-center bg-white'
+        className='max-w-4xl mx-auto px-4 py-12 flex flex-col gap-6 sticky h-screen top-0 z-20 items-center justify-center bg-white rounded-3xl'
         style={{
           y: nextSectionY,
           opacity: nextSectionOpacity,
         }}
       >
         <Heading level={1} colour='#000000'>
-          Join our community
+          Join our <span className='text-everyRunOrange'>community</span>
         </Heading>
         <p className='text-lg md:text-xl text-gray-600 max-w-2xl text-center mx-auto'>
-          Connect with <Number n={11000} /> runners in your area and join our
-          weekly runs.
+          Connect with{' '}
+          <span className='text-everyRunOrange font-medium'>
+            <Number n={11000} />
+          </span>{' '}
+          members in your area and join our weekly runs.
         </p>
       </motion.div>
     </div>

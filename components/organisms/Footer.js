@@ -51,9 +51,9 @@ export default function Footer() {
           <div className='flex flex-col md:flex-row justify-between items-center'>
             <div className='mb-4 md:mb-0'>
               <img
-                src='/images/logos/logo.svg'
+                src='/images/logos/white-logo.png'
                 alt='Melbourne Run Club'
-                className='h-32 '
+                className='h-auto w-1/5'
               />
 
               <p className='text-sm'>
@@ -73,6 +73,10 @@ export default function Footer() {
               <FooterLink href='/privacy'>Privacy Policy</FooterLink>
               <FooterLink href='/terms'>Terms of Service</FooterLink>
               <FooterLink href='/cookies'>Cookie Policy</FooterLink>
+              <FooterLink href='https://codebybenson.netlify.app'>
+                Made by <span className='underline'>Code by Benson</span>{' '}
+                &#x2B50;
+              </FooterLink>
             </div>
             <p>
               © {new Date().getFullYear()} EveryRun Club Melbourne. All rights

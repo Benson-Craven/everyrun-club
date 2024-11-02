@@ -8,7 +8,9 @@ import {
   Calendar,
   Map,
   Dumbbell,
+  PartyPopperIcon,
 } from 'lucide-react'
+import Link from 'next/link'
 import { useSpring, animated } from 'react-spring'
 
 function Number({ n }) {
@@ -29,15 +31,14 @@ export default function BentoGrid() {
         <div className='md:col-span-2 row-span-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'>
           {' '}
           <div>
-            <Video className='w-8 h-8 mb-4' />
-            <h2 className='text-2xl font-bold mb-2'>Featured Content</h2>
+            <PartyPopperIcon className='w-8 h-8 mb-4' />
+            <h2 className='text-2xl font-bold mb-2'>Upcoming Events</h2>
             <p className='text-purple-100'>
-              Discover our latest running events and training sessions captured
-              in high quality.
+              Come along to our 2024 Summer Social! Grab your ticket below.
             </p>
           </div>
-          <button className='mt-4 bg-white text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-purple-100 transition-colors'>
-            Watch Now
+          <button className='mt-4 bg-white text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-purple-100 transition-colors cursor-pointer'>
+            Buy Tickets
           </button>
         </div>
 
@@ -64,58 +65,20 @@ export default function BentoGrid() {
             alt='Group Run'
             className='object-cover w-full h-full transition-transform group-hover:scale-105'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-between p-6'>
-            <Dumbbell className='w-6 h-6 text-white' />
-            <div>
-              {' '}
-              <h3 className='text-lg font-semibold text-white'>
-                Fancy more of a challenge?
-              </h3>
-              <p className='text-sm text-gray-200'>
-                Join our more intense Wednesday group runs
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Photo Gallery */}
-        <div className='bg-amber-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-amber-200 transition-all  hover:scale-[1.02]'>
-          <Camera className='w-6 h-6 text-amber-600' />
-          <div>
-            <h3 className='text-lg font-semibold text-amber-900 mt-4'>
-              Photo Gallery
-            </h3>
-            <p className='text-amber-700 text-sm mt-1'>
-              Memories from our community runs
-            </p>
-          </div>
-        </div>
-
-        {/* Community Stats */}
-        <div className='md:col-span-2 bg-emerald-100 rounded-xl p-6 flex flex-col justify-between hover:bg-emerald-200 transition-all  hover:scale-[1.02]'>
-          <Users className='w-6 h-6 text-emerald-600' />
-          <div>
-            <h3 className='text-lg font-semibold text-emerald-900 mt-4'>
-              Community Stats
-            </h3>
-            <div className='grid grid-cols-2 gap-4 mt-2'>
+          <Link href={'/wednesday'}>
+            <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-between p-6 cursor-pointer'>
+              <Dumbbell className='w-6 h-6 text-white' />
               <div>
-                {/* <p className='text-2xl font-bold text-emerald-700'> */}
-                <h1 className='text-2xl font-bold text-emerald-700 flex'>
-                  {/* <Number n={1000} />+ */}
-                </h1>
-
-                <p className='text-sm text-emerald-600'>Active Runners</p>
-              </div>
-              <div>
-                <p className='text-2xl font-bold text-emerald-700 flex'>
-                  {/* <Number n={5000} /> */}
-                  km
+                {' '}
+                <h3 className='text-lg font-semibold text-white'>
+                  Fancy more of a challenge?
+                </h3>
+                <p className='text-sm text-gray-200'>
+                  Join our more intense Wednesday group runs
                 </p>
-                <p className='text-sm text-emerald-600'>Total Run Distance</p>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Achievements */}

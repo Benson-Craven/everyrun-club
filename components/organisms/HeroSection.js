@@ -8,7 +8,7 @@ const messages = [
   {
     id: 1,
     title: 'EveryRun Melbourne',
-    subtitle: 'Not just a run club',
+    showLogo: true, // Added this flag for the first message
   },
   {
     id: 2,
@@ -56,24 +56,21 @@ export default function HeroSection() {
     target: containerRef,
     offset: ['start start', 'end start'],
   })
-
   const segmentSize = 0.6 / messages.length
 
   return (
     <section className='relative h-[350vh]' ref={containerRef}>
-      <div className='sticky top-0 h-screen'>
+      <div className='sticky top-0 h-screen z-20'>
         <VideoBackground />
         {messages.map((message, index) => {
           const startFade = index * segmentSize
           const fullOpacity = startFade + segmentSize * 0.2
           const endFade = startFade + segmentSize * 0.8
-
           const opacity = useTransform(
             scrollYProgress,
             [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
             [index === 0 ? 1 : 0, 1, 1, 0]
           )
-
           const y = useTransform(
             scrollYProgress,
             [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
@@ -90,14 +87,22 @@ export default function HeroSection() {
               }}
             >
               <motion.div className='flex flex-col items-center'>
-                <Heading level={1}>{message.title}</Heading>
+                {message.showLogo ? (
+                  <img
+                    src='/images/logos/white-logo.png'
+                    alt='EveryRun Melbourne Logo'
+                    className='w-4/5  md:w-3/5 lg:w-4/5 h-auto' // Adjust size as needed
+                  />
+                ) : (
+                  <Heading level={1}>{message.title}</Heading>
+                )}
                 <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
                   {message.subtitle}
                 </p>
                 {index === 2 ? (
                   <div className='flex flex-col sm:flex-row gap-4'>
-                    <Button>Join Now</Button>
-                    <Button variant='secondary'>View Events</Button>
+                    <Button>Run With Us</Button>
+                    <Button variant='secondary'>View Upcoming Events</Button>
                   </div>
                 ) : null}
               </motion.div>
