@@ -28,28 +28,33 @@ export default function BentoGrid() {
     <div className='container mx-auto p-4 mt-10'>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto'>
         {/* Large feature box */}
-        <div className='md:col-span-2 row-span-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'>
+        <div
+          className='md:col-span-2 row-span-2 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'
+          style={{
+            backgroundImage: "url('/images/smile-3.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           {' '}
           <div>
             <PartyPopperIcon className='w-8 h-8 mb-4' />
             <h2 className='text-2xl font-bold mb-2'>Upcoming Events</h2>
-            <p className='text-purple-100'>
-              Come along to our 2024 Summer Social! Grab your ticket below.
-            </p>
+            <p>Come along to our 2024 Summer Social! Grab your ticket below.</p>
           </div>
-          <button className='mt-4 bg-white text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-purple-100 transition-colors cursor-pointer'>
+          <button className='mt-4 bg-white text-everyRunOrange px-4 py-2 rounded-lg font-medium hover:bg-orange-100 transition-colors cursor-pointer'>
             Buy Tickets
           </button>
         </div>
 
         {/* Music Integration */}
-        <div className='bg-rose-100 rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-rose-200 transition-all  hover:scale-[1.02]'>
-          <Music className='w-6 h-6 text-rose-600' />
+        <div className='bg-everyRunBlue rounded-xl p-6 aspect-square flex flex-col justify-between hover:bg-everyRunBlue-200 transition-all  hover:scale-[1.02]'>
+          <Music className='w-6 h-6 text-blue-600' />
           <div>
-            <h3 className='text-lg font-semibold text-rose-900 mt-4'>
+            <h3 className='text-lg font-semibold text-blue-900 mt-4'>
               EveryRun Playlist
             </h3>
-            <p className='text-rose-700 text-sm mt-1'>
+            <p className='text-blue-700 text-sm mt-1'>
               Curated beats for your perfect run
             </p>
           </div>

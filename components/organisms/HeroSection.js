@@ -13,13 +13,13 @@ const messages = [
   {
     id: 2,
     title: 'Join Our Community',
-    subtitle: 'Come along and join us.',
+    subtitle: 'Come along and join us',
   },
-  {
-    id: 3,
-    title: 'Run Melbourne',
-    subtitle: 'Every step brings us closer.',
-  },
+  // {
+  //   id: 3,
+  //   title: 'Run Melbourne',
+  //   subtitle: 'Every step brings us closer.',
+  // },
 ]
 
 const VideoBackground = ({ children }) => {
@@ -99,7 +99,7 @@ export default function HeroSection() {
                 <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
                   {message.subtitle}
                 </p>
-                {index === 2 ? (
+                {index === 1 ? (
                   <div className='flex flex-col sm:flex-row gap-4'>
                     <Button>Run With Us</Button>
                     <Button variant='secondary'>View Upcoming Events</Button>

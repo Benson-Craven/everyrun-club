@@ -9,12 +9,12 @@ const messages = [
   {
     id: 1,
     title: 'Fancy more of a challenge?',
-    subtitle: 'Come and join us on a Wednesday',
+    subtitle: 'Join us on a Wednesday',
   },
   {
     id: 2,
     title: 'Push yourself with the team',
-    subtitle: 'Be part of something extraordinary',
+    subtitle: 'Come along to the Olympic Oval',
   },
 ]
 
@@ -30,7 +30,7 @@ const VideoBackground = ({ children }) => {
 
   return (
     <div
-      className='absolute inset-0 overflow-hidden p-[13px] z-0'
+      className='absolute inset-0 overflow-hidden p-2 sm:p-4 md:p-[13px] z-0'
       ref={videoRef}
     >
       <motion.div style={{ scale }} className='w-full h-full'>
@@ -58,7 +58,7 @@ export default function HeroSection() {
   const segmentSize = 0.6 / messages.length
 
   return (
-    <section className='relative h-[350vh]' ref={containerRef}>
+    <section className='relative h-[300vh] sm:h-[350vh]' ref={containerRef}>
       <div className='sticky top-0 h-screen'>
         <VideoBackground />
         {messages.map((message, index) => {
@@ -81,24 +81,29 @@ export default function HeroSection() {
           return (
             <motion.div
               key={message.id}
-              className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-4 z-30'
+              className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
               style={{
                 opacity,
                 y,
               }}
             >
-              <motion.div className='flex flex-col items-center'>
-                <Heading level={1}>{message.title}</Heading>
-                <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
+              <motion.div className='flex flex-col items-center text-center max-w-lg sm:max-w-xl md:max-w-2xl'>
+                <Heading
+                  level={1}
+                  className='text-2xl sm:text-3xl md:text-4xl font-bold'
+                >
+                  {message.title}
+                </Heading>
+                <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
                   {message.subtitle}
                 </p>
-                {index === 1 ? (
+                {index === 1 && (
                   <div className='flex flex-col sm:flex-row gap-4'>
                     <Link href='/wednesday'>
                       <Button variant='primary'>Find Out More</Button>
                     </Link>
                   </div>
-                ) : null}
+                )}
               </motion.div>
             </motion.div>
           )

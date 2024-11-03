@@ -58,7 +58,7 @@ const RunClubFeatures = () => {
         }}
       >
         <Heading level={1} colour={'#000000'}>
-          Where do we like to run?
+          Where do we like to <span className='text-everyRunOrange'>run</span>?
         </Heading>
       </motion.div>
 
@@ -67,27 +67,27 @@ const RunClubFeatures = () => {
           {
             title: 'Fawkner Park',
             distance: 'South Yarra',
-            badgeColor: '#4cd964',
+            badgeColor: '#C5F6FF',
           },
           {
             title: 'Catani Gardens',
             distance: 'St. Kilda',
-            badgeColor: '#ff9500',
+            badgeColor: '#FF893A',
           },
           {
             title: 'Royal Botanic Gardens',
             distance: 'CBD',
-            badgeColor: '#ff3b30',
+            badgeColor: '#C5F6FF',
           },
           {
             title: 'Princes Park',
             distance: 'Carlton North',
-            badgeColor: '#ffcc00',
+            badgeColor: '#FF893A',
           },
           {
             title: 'Caulfield Park',
             distance: 'Caulfield North',
-            badgeColor: '#5856d6',
+            badgeColor: '#C5F6FF',
           },
         ].map((location) => (
           <div key={location.title}>
