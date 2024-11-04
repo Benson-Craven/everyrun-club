@@ -4,19 +4,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../atoms/Button'
 import Heading from '../atoms/Typography'
 
-const messages = [
-  {
-    id: 1,
-    title: 'EveryRun Melbourne',
-    showLogo: true,
-  },
-  {
-    id: 2,
-    title: 'Join Our Community',
-    subtitle: 'Come along and join us',
-  },
-]
-
 const VideoBackground = () => {
   const videoRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -45,89 +32,62 @@ const VideoBackground = () => {
   )
 }
 
-const MessageComponent = ({ message, opacity, y, index }) => (
-  <motion.div
-    key={message.id}
-    className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-4 z-30'
-    style={{
-      opacity,
-      y,
-    }}
-  >
-    <motion.div className='flex flex-col items-center'>
-      {message.showLogo ? (
-        <img
-          src='/images/logos/white-logo.png'
-          alt='EveryRun Melbourne Logo'
-          className='w-4/5 md:w-3/5 lg:w-4/5 h-auto'
-        />
-      ) : (
-        <Heading level={1}>{message.title}</Heading>
-      )}
-      <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
-        {message.subtitle}
-      </p>
-      {index === 1 && (
-        <div className='flex flex-col sm:flex-row gap-4'>
-          <Button>Run With Us</Button>
-          <Button variant='secondary'>View Upcoming Events</Button>
-        </div>
-      )}
-    </motion.div>
-  </motion.div>
-)
-
-export default function HeroSection() {
+const HeroSection = () => {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   })
 
-  const segmentSize = 0.6 / messages.length
+  // Opacity and position transformations for each message
+  const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0])
+  const y1 = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.4],
+    ['0%', '-20%', '-50%']
+  )
 
-  // Define separate arrays for opacity and y transforms
-  const opacityTransforms = []
-  const yTransforms = []
-
-  // Populate opacity and y transform arrays at the top level
-  for (let index = 0; index < messages.length; index++) {
-    const startFade = index * segmentSize
-    const fullOpacity = startFade + segmentSize * 0.2
-    const endFade = startFade + segmentSize * 0.8
-    const fadeOut = endFade + segmentSize * 0.2
-
-    opacityTransforms.push(
-      useTransform(
-        scrollYProgress,
-        [startFade, fullOpacity, endFade, fadeOut],
-        [index === 0 ? 1 : 0, 1, 1, 0]
-      )
-    )
-
-    yTransforms.push(
-      useTransform(
-        scrollYProgress,
-        [startFade, fullOpacity, endFade, fadeOut],
-        [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
-      )
-    )
-  }
+  const opacity2 = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0, 1, 0])
+  const y2 = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 0.7],
+    ['50%', '0%', '-20%']
+  )
 
   return (
-    <section className='relative h-[250vh]' ref={containerRef}>
+    <section className='relative h-[200vh]' ref={containerRef}>
       <div className='sticky top-0 h-screen z-20'>
         <VideoBackground />
-        {messages.map((message, index) => (
-          <MessageComponent
-            key={message.id}
-            message={message}
-            opacity={opacityTransforms[index]}
-            y={yTransforms[index]}
-            index={index}
+
+        {/* First Message */}
+        <motion.div
+          className='absolute inset-0 flex flex-col justify-center items-center text-white px-4 z-30'
+          style={{ opacity: opacity1, y: y1 }}
+        >
+          <img
+            src='/images/logos/white-logo.png'
+            alt='EveryRun Melbourne Logo'
+            className='w-4/5 md:w-3/5 lg:w-4/5 h-auto'
           />
-        ))}
+        </motion.div>
+
+        {/* Second Message */}
+        <motion.div
+          className='absolute inset-0 flex flex-col justify-center items-center text-white px-4 z-30'
+          style={{ opacity: opacity2, y: y2 }}
+        >
+          <Heading level={1}>Join Our Community</Heading>
+          <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl'>
+            Come along and join us
+          </p>
+          <div className='flex flex-col sm:flex-row gap-4'>
+            <Button>Run With Us</Button>
+            <Button variant='secondary'>View Upcoming Events</Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
+
+export default HeroSection

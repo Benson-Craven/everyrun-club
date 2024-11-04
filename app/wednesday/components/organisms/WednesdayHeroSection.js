@@ -4,19 +4,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../../../components/atoms/Button'
 import Heading from '../../../../components/atoms/Typography'
 
-const messages = [
-  {
-    id: 1,
-    title: 'Fancy more of a challenge?',
-    subtitle: 'Come along and join us on a Wednesday night!',
-  },
-  {
-    id: 2,
-    title: 'Join Our Community',
-    subtitle: 'Come along and join us.',
-  },
-]
-
 const VideoBackground = () => {
   const videoRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -45,73 +32,71 @@ const VideoBackground = () => {
   )
 }
 
-const MessageComponent = ({ message, opacity, y, index }) => (
-  <motion.div
-    key={message.id}
-    className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
-    style={{ opacity, y }}
-  >
-    <motion.div className='flex flex-col items-center text-center max-w-lg sm:max-w-xl md:max-w-2xl'>
-      <Heading level={1} className='text-2xl sm:text-3xl md:text-4xl font-bold'>
-        {message.title}
-      </Heading>
-      <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
-        {message.subtitle}
-      </p>
-      {index === 1 && (
-        <div className='flex flex-col sm:flex-row gap-4'>
-          <Button>Where to?</Button>
-          <Button variant='secondary'>View Events</Button>
-        </div>
-      )}
-    </motion.div>
-  </motion.div>
-)
-
-export default function HeroSection() {
+const HeroSection = () => {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   })
 
-  const segmentSize = 0.6 / messages.length
+  // Transform settings for each message
+  const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0])
+  const y1 = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.4],
+    ['0%', '-20%', '-50%']
+  )
 
-  // Define transforms directly in the component's top-level scope
-  const transforms = messages.map((_, index) => {
-    const startFade = index * segmentSize
-    const fullOpacity = startFade + segmentSize * 0.2
-    const endFade = startFade + segmentSize * 0.8
-    const fadeOut = endFade + segmentSize * 0.2
-
-    return {
-      opacity: useTransform(
-        scrollYProgress,
-        [startFade, fullOpacity, endFade, fadeOut],
-        [index === 0 ? 1 : 0, 1, 1, 0]
-      ),
-      y: useTransform(
-        scrollYProgress,
-        [startFade, fullOpacity, endFade, fadeOut],
-        [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
-      ),
-    }
-  })
+  const opacity2 = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0, 1, 0])
+  const y2 = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 0.7],
+    ['50%', '0%', '-20%']
+  )
 
   return (
     <section className='relative h-[300vh] sm:h-[250vh]' ref={containerRef}>
       <div className='sticky top-0 h-screen'>
         <VideoBackground />
-        {messages.map((message, index) => (
-          <MessageComponent
-            key={message.id}
-            message={message}
-            opacity={transforms[index].opacity}
-            y={transforms[index].y}
-            index={index}
-          />
-        ))}
+
+        {/* First Message */}
+        <motion.div
+          className='absolute inset-0 flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
+          style={{ opacity: opacity1, y: y1 }}
+        >
+          <Heading
+            level={1}
+            className='text-2xl sm:text-3xl md:text-4xl font-bold'
+          >
+            Fancy more of a challenge?
+          </Heading>
+          <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
+            Come along and join us on a Wednesday night!
+          </p>
+        </motion.div>
+
+        {/* Second Message */}
+        <motion.div
+          className='absolute inset-0 flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
+          style={{ opacity: opacity2, y: y2 }}
+        >
+          <Heading
+            level={1}
+            className='text-2xl sm:text-3xl md:text-4xl font-bold'
+          >
+            Join Our Community
+          </Heading>
+          <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
+            Come along and join us.
+          </p>
+          <div className='flex flex-col sm:flex-row gap-4'>
+            <Button>Where to?</Button>
+            <Button variant='secondary'>View Events</Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
+
+export default HeroSection
