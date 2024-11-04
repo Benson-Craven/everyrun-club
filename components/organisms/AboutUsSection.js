@@ -84,7 +84,7 @@ export default function AboutSection() {
 
       {/* Second Section */}
       <motion.div
-        className='max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-4xl container mx-auto px-4 py-12 flex flex-col gap-8 sticky h-[90vh] sm:h-screen top-0 z-20 items-center justify-center bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-3xl border border-gray-200'
+        className='max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl container mx-auto px-4 py-12 flex flex-col gap-8 sticky h-[90vh] sm:h-screen top-0 z-20 items-center justify-center bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-3xl border border-gray-200 '
         style={{
           y: nextSectionY,
           opacity: nextSectionOpacity,
