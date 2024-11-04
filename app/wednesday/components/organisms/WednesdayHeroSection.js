@@ -49,10 +49,7 @@ const MessageComponent = ({ message, opacity, y, index }) => (
   <motion.div
     key={message.id}
     className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
-    style={{
-      opacity,
-      y,
-    }}
+    style={{ opacity, y }}
   >
     <motion.div className='flex flex-col items-center text-center max-w-lg sm:max-w-xl md:max-w-2xl'>
       <Heading level={1} className='text-2xl sm:text-3xl md:text-4xl font-bold'>
@@ -71,6 +68,26 @@ const MessageComponent = ({ message, opacity, y, index }) => (
   </motion.div>
 )
 
+const createTransforms = (scrollYProgress, index, segmentSize) => {
+  const startFade = index * segmentSize
+  const fullOpacity = startFade + segmentSize * 0.2
+  const endFade = startFade + segmentSize * 0.8
+  const fadeOut = endFade + segmentSize * 0.2
+
+  return {
+    opacity: useTransform(
+      scrollYProgress,
+      [startFade, fullOpacity, endFade, fadeOut],
+      [index === 0 ? 1 : 0, 1, 1, 0]
+    ),
+    y: useTransform(
+      scrollYProgress,
+      [startFade, fullOpacity, endFade, fadeOut],
+      [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
+    ),
+  }
+}
+
 export default function HeroSection() {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -80,26 +97,11 @@ export default function HeroSection() {
 
   const segmentSize = 0.6 / messages.length
 
-  // Create transform functions for each message at the top level
-  const transforms = messages.map((_, index) => {
-    const startFade = index * segmentSize
-    const fullOpacity = startFade + segmentSize * 0.2
-    const endFade = startFade + segmentSize * 0.8
-    const fadeOut = endFade + segmentSize * 0.2
-
-    return {
-      opacity: useTransform(
-        scrollYProgress,
-        [startFade, fullOpacity, endFade, fadeOut],
-        [index === 0 ? 1 : 0, 1, 1, 0]
-      ),
-      y: useTransform(
-        scrollYProgress,
-        [startFade, fullOpacity, endFade, fadeOut],
-        [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
-      ),
-    }
-  })
+  // Create all transforms at the top level
+  const transforms = [
+    createTransforms(scrollYProgress, 0, segmentSize),
+    createTransforms(scrollYProgress, 1, segmentSize),
+  ]
 
   return (
     <section className='relative h-[300vh] sm:h-[250vh]' ref={containerRef}>
