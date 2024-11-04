@@ -40,7 +40,7 @@ export default function ExpandingSection() {
   return (
     <div ref={ref} className='relative h-fit py-20'>
       <motion.div
-        style={{ scale }}
+        // style={{ scale }}
         className='absolute inset-0 bg-black rounded-3xl h-full w-full z-0'
       />
 
