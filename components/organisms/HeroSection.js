@@ -45,35 +45,66 @@ const VideoBackground = () => {
   )
 }
 
+const MessageComponent = ({ message, opacity, y, index }) => (
+  <motion.div
+    key={message.id}
+    className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-4 z-30'
+    style={{
+      opacity,
+      y,
+    }}
+  >
+    <motion.div className='flex flex-col items-center'>
+      {message.showLogo ? (
+        <img
+          src='/images/logos/white-logo.png'
+          alt='EveryRun Melbourne Logo'
+          className='w-4/5 md:w-3/5 lg:w-4/5 h-auto'
+        />
+      ) : (
+        <Heading level={1}>{message.title}</Heading>
+      )}
+      <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
+        {message.subtitle}
+      </p>
+      {index === 1 && (
+        <div className='flex flex-col sm:flex-row gap-4'>
+          <Button>Run With Us</Button>
+          <Button variant='secondary'>View Upcoming Events</Button>
+        </div>
+      )}
+    </motion.div>
+  </motion.div>
+)
+
 export default function HeroSection() {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   })
-  const segmentSize = 0.6 / messages.length
-  const opacityTransforms = []
-  const yTransforms = []
 
-  // Precompute opacity and y transforms for each message
-  messages.forEach((_, index) => {
+  const segmentSize = 0.6 / messages.length
+
+  // Create transform functions for each message at the top level
+  const transforms = messages.map((_, index) => {
     const startFade = index * segmentSize
     const fullOpacity = startFade + segmentSize * 0.2
     const endFade = startFade + segmentSize * 0.8
+    const fadeOut = endFade + segmentSize * 0.2
 
-    const opacity = useTransform(
-      scrollYProgress,
-      [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
-      [index === 0 ? 1 : 0, 1, 1, 0]
-    )
-    opacityTransforms.push(opacity)
-
-    const y = useTransform(
-      scrollYProgress,
-      [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
-      [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
-    )
-    yTransforms.push(y)
+    return {
+      opacity: useTransform(
+        scrollYProgress,
+        [startFade, fullOpacity, endFade, fadeOut],
+        [index === 0 ? 1 : 0, 1, 1, 0]
+      ),
+      y: useTransform(
+        scrollYProgress,
+        [startFade, fullOpacity, endFade, fadeOut],
+        [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
+      ),
+    }
   })
 
   return (
@@ -81,35 +112,13 @@ export default function HeroSection() {
       <div className='sticky top-0 h-screen z-20'>
         <VideoBackground />
         {messages.map((message, index) => (
-          <motion.div
+          <MessageComponent
             key={message.id}
-            className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-4 z-30'
-            style={{
-              opacity: opacityTransforms[index],
-              y: yTransforms[index],
-            }}
-          >
-            <motion.div className='flex flex-col items-center'>
-              {message.showLogo ? (
-                <img
-                  src='/images/logos/white-logo.png'
-                  alt='EveryRun Melbourne Logo'
-                  className='w-4/5 md:w-3/5 lg:w-4/5 h-auto'
-                />
-              ) : (
-                <Heading level={1}>{message.title}</Heading>
-              )}
-              <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl z-10'>
-                {message.subtitle}
-              </p>
-              {index === 1 && (
-                <div className='flex flex-col sm:flex-row gap-4'>
-                  <Button>Run With Us</Button>
-                  <Button variant='secondary'>View Upcoming Events</Button>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
+            message={message}
+            opacity={transforms[index].opacity}
+            y={transforms[index].y}
+            index={index}
+          />
         ))}
       </div>
     </section>
