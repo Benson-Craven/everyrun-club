@@ -56,13 +56,13 @@ export default function AboutSection() {
 
         <div className='relative mx-auto flex items-center aspect-video h-36 w-64 mb-6'>
           <div className='w-full h-full rounded-3xl overflow-hidden bg-gray-100 relative'>
-            <video
-              className='w-full h-full object-cover'
-              loop
-              muted
-              playsInline
-              autoPlay
-              src='/videos/hero-running.mp4'
+            <Image
+              src='/images/smile-2.jpg'
+              alt='Upcoming Events'
+              fill
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw'
+              className='object-cover'
+              loading='lazy'
             />
             <div className='absolute top-2 right-2 bg-black bg-opacity-50 rounded-full p-3'>
               <Dumbbell className='w-6 h-6 text-white' strokeWidth={1.5} />

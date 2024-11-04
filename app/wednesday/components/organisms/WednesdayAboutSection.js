@@ -92,7 +92,7 @@ export default function ExpandingSection() {
                   </Heading>
                 </div>
               </div>
-              {/* <div className='relative w-full sm:w-1/3 h-40 sm:h-auto mt-4 sm:mt-0 flex-shrink-0'>
+              <div className='relative w-full sm:w-1/3 h-40 sm:h-auto mt-4 sm:mt-0 flex-shrink-0'>
                 <Image
                   src='/images/running-behind.jpg'
                   alt='Phone mockup'
@@ -101,7 +101,7 @@ export default function ExpandingSection() {
                   className='object-cover rounded-3xl'
                   loading='lazy'
                 />
-              </div> */}
+              </div>{' '}
               {/* <motion.button
                 className='absolute bottom-4 sm:bottom-auto sm:top-1/2 right-4 bg-[#0066FF] text-white p-2 sm:p-4 rounded-full hover:bg-blue-600 transition-colors'
                 whileHover={{ scale: 1.05 }}

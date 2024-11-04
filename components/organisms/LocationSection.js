@@ -20,15 +20,15 @@ const FeatureItem = ({ title, profileImageSrc, badgeColor, distance }) => (
     </div>
 
     <div className='relative w-16 h-16 md:w-36 md:h-36 flex items-center'>
-      <video
+      {/* <video
         autoPlay
         loop
         muted
         playsInline
         className='rounded-3xl w-full h-full object-cover'
       >
-        <source src={profileImageSrc} type='video/mp4' />
-      </video>
+        <source src={profileImageSrc} type='video/mp4' /> */}
+
       <div
         className={`absolute w-5 h-5 md:w-7 md:h-7 rounded-3xl top-0 right-0`}
         style={{ backgroundColor: badgeColor }}

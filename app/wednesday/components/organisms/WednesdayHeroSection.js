@@ -39,15 +39,15 @@ const HeroSection = () => {
     offset: ['start start', 'end start'],
   })
 
-  // Transform settings for each message
-  const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0])
+  // Opacity and position transformations for each message
+  const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.3], [1, 1, 0])
   const y1 = useTransform(
     scrollYProgress,
     [0, 0.2, 0.4],
     ['0%', '-20%', '-50%']
   )
 
-  const opacity2 = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0, 1, 0])
+  const opacity2 = useTransform(scrollYProgress, [0.3, 0.45, 0.6], [0, 1, 0])
   const y2 = useTransform(
     scrollYProgress,
     [0.3, 0.5, 0.7],
