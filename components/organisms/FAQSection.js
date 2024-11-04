@@ -56,12 +56,13 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className='mb-4 text-gray-600'>
-            We're stoked you're curious about EveryRun Club. Here are some
-            questions we get asked a lot - and some answers to get you started.
+            We&apos;re stoked you&apos;re curious about EveryRun Club. Here are
+            some questions we get asked a lot - and some answers to get you
+            started.
           </p>
           <p className='text-gray-600'>
-            If you're still looking, head on over to Instagram and chuck us a
-            message.
+            If you&apos;re still looking, head on over to Instagram and chuck us
+            a message.
           </p>
         </div>
         <div>

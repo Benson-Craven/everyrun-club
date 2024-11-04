@@ -52,11 +52,11 @@ export default function WednesdayInfoSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Our Wednesday sessions cater for everyone. Whether you're a seasoned
-          veteran or just starting out, at{' '}
+          Our Wednesday sessions cater for everyone. Whether you&apos;re a
+          seasoned veteran or just starting out, at{' '}
           <span className='text-black font-medium'>EveryRun Melbourne,</span>{' '}
-          Wednesday sessions are for those who can't get enough of the weekly
-          run.
+          Wednesday sessions are for those who can&apos;t get enough of the
+          weekly run.
         </motion.p>
       </motion.div>
     </div>

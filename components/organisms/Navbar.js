@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, MapPin, Calendar, Users, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image' // Import next/image
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,9 +40,11 @@ export default function Navbar() {
             {/* Logo */}
             <Link href='/'>
               <div className='flex-shrink-0 flex items-center cursor-pointer'>
-                <img
-                  src={'/images/logos/logo.svg'}
-                  alt={'EveryRunClub'}
+                <Image
+                  src='/images/logos/logo.svg'
+                  alt='EveryRunClub'
+                  width={112} // Adjust width and height as needed
+                  height={112}
                   className='w-28 h-28'
                 />
               </div>

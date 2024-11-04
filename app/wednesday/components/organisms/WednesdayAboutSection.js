@@ -16,6 +16,7 @@ import {
   PartyPopperIcon,
 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ExpandingSection() {
   const ref = useRef(null)
@@ -38,13 +39,11 @@ export default function ExpandingSection() {
 
   return (
     <div ref={ref} className='relative h-fit py-20'>
-      {/* Scalable Background */}
       <motion.div
         style={{ scale }}
         className='absolute inset-0 bg-black rounded-3xl h-full w-full z-0'
       />
 
-      {/* Content Section */}
       <div
         ref={containerRef}
         className='relative z-10 flex flex-col items-center justify-center'
@@ -56,12 +55,15 @@ export default function ExpandingSection() {
           <Heading level={1} colour={'#ffffff'}>
             And so much <span className='text-everyRunBlue'>more</span>.
           </Heading>
-          <div className='relative mx-auto flex items-center aspect-video h-40 md:h-64  sm:w-80 md:w-3/4 mb-6'>
+          <div className='relative mx-auto flex items-center aspect-video h-40 md:h-64 sm:w-80 md:w-3/4 mb-6'>
             <div className='w-full h-full rounded-3xl overflow-hidden bg-gray-100 relative'>
-              <img
+              <Image
                 src='/images/smile-1.jpg'
                 alt='Upcoming Events'
-                className='w-full h-full object-cover'
+                fill
+                sizes='(max-width: 768px) 80vw, (max-width: 1200px) 75vw, 50vw'
+                className='object-cover'
+                loading='lazy'
               />
               <div className='absolute top-2 right-2 bg-black bg-opacity-50 rounded-full p-2 sm:p-3'>
                 <Heart
@@ -76,11 +78,8 @@ export default function ExpandingSection() {
           </p>
         </motion.div>
 
-        {/* Bento-style grid */}
-        {/* Bento-style grid */}
         <motion.div className='container mx-auto p-4 z-50 mb-[20vh]'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto'>
-            {/* Live Voicemail */}
             <div className='md:col-span-2 bg-[#111111] rounded-3xl p-8 relative min-h-[400px]'>
               <span className='text-everyRunOrange text-sm mb-4 block'>
                 Higher Intensity
@@ -91,14 +90,19 @@ export default function ExpandingSection() {
                 </Heading>
               </div>
               <div className='absolute right-4 top-1/2 -translate-y-1/2 w-1/3 h-4/5'>
-                <img
-                  src='/images/running-behind.jpg'
-                  alt='Phone mockup'
-                  className='w-full h-full object-cover rounded-3xl'
-                />
+                <div className='relative w-full h-full'>
+                  <Image
+                    src='/images/running-behind.jpg'
+                    alt='Phone mockup'
+                    fill
+                    sizes='(max-width: 768px) 33vw, 25vw'
+                    className='object-cover rounded-3xl'
+                    loading='lazy'
+                  />
+                </div>
               </div>
               <motion.button
-                className='absolute  bg-[#0066FF] text-white p-4 rounded-full hover:bg-blue-600 transition-colors'
+                className='absolute bg-[#0066FF] text-white p-4 rounded-full hover:bg-blue-600 transition-colors'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -106,7 +110,6 @@ export default function ExpandingSection() {
               </motion.button>
             </div>
 
-            {/* Message Transcription */}
             <div className='bg-[#111111] rounded-3xl p-6 relative'>
               <MessageCircle className='w-6 h-6 text-[#0066FF] mb-4' />
               <h3 className='text-white text-xl font-semibold mb-2'>
@@ -118,11 +121,14 @@ export default function ExpandingSection() {
               </p>
               <div className='bg-[#1A1A1A] rounded-xl p-4'>
                 <div className='flex items-center space-x-3 mb-4'>
-                  <div className='w-8 h-8 rounded-full bg-gray-700'>
-                    <img
+                  <div className='relative w-8 h-8 rounded-full bg-gray-700'>
+                    <Image
                       src='/images/smile-2.jpg'
                       alt='View 1'
-                      className='rounded-full aspect-square  object-cover'
+                      fill
+                      sizes='32px'
+                      className='rounded-full object-cover'
+                      loading='lazy'
                     />
                   </div>
                   <p className='text-white text-sm'>
@@ -137,7 +143,6 @@ export default function ExpandingSection() {
               </div>
             </div>
 
-            {/* View Statistics */}
             <div className='bg-[#111111] rounded-3xl p-6 relative'>
               <MapPinHouse className='w-6 h-6 text-[#0066FF] mb-4' />
               <h3 className='text-white text-xl font-semibold mb-2'>
@@ -147,21 +152,36 @@ export default function ExpandingSection() {
                 Track who's viewed your stories with detailed read receipts
               </p>
               <div className='grid grid-cols-3 gap-2 mb-4'>
-                <img
-                  src='/images/smile-1.jpg'
-                  alt='View 1'
-                  className='rounded-lg aspect-square object-cover'
-                />
-                <img
-                  src='/images/smile-2.jpg'
-                  alt='View 2'
-                  className='rounded-lg aspect-square object-cover'
-                />
-                <img
-                  src='/images/smile-3.jpg'
-                  alt='View 3'
-                  className='rounded-lg aspect-square object-cover'
-                />
+                <div className='relative aspect-square'>
+                  <Image
+                    src='/images/smile-1.jpg'
+                    alt='View 1'
+                    fill
+                    sizes='(max-width: 768px) 33vw, 25vw'
+                    className='rounded-lg object-cover'
+                    loading='lazy'
+                  />
+                </div>
+                <div className='relative aspect-square'>
+                  <Image
+                    src='/images/smile-2.jpg'
+                    alt='View 2'
+                    fill
+                    sizes='(max-width: 768px) 33vw, 25vw'
+                    className='rounded-lg object-cover'
+                    loading='lazy'
+                  />
+                </div>
+                <div className='relative aspect-square'>
+                  <Image
+                    src='/images/smile-3.jpg'
+                    alt='View 3'
+                    fill
+                    sizes='(max-width: 768px) 33vw, 25vw'
+                    className='rounded-lg object-cover'
+                    loading='lazy'
+                  />
+                </div>
               </div>
             </div>
           </div>

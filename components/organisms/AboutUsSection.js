@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { Dumbbell, Heart } from 'lucide-react'
 import Heading from '../atoms/Typography'
 import { useSpring, animated } from 'react-spring'
+import Image from 'next/image'
 
 function Number({ n }) {
   const ref = useRef(null)
@@ -49,7 +50,7 @@ export default function AboutSection() {
         }}
       >
         <Heading level={1} colour='#000000'>
-          We're not{' '}
+          We&apos;re not{' '}
           <span className='text-everyRunOrange'>just a run club.</span>
         </Heading>
 
@@ -77,13 +78,13 @@ export default function AboutSection() {
         >
           Our running community is more than just a group of runners. With{' '}
           <span className='text-black font-medium'>EveryRun Melbourne,</span>{' '}
-          we're a hub for everyone.
+          we&apos;re a hub for everyone.
         </motion.p>
       </motion.div>
 
       {/* Second Section */}
       <motion.div
-        className='max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-4xl container mx-auto  px-4 py-12 flex flex-col gap-8 sticky h-[90vh] sm:h-screen top-0 z-20 items-center justify-center bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-3xl border border-gray-200'
+        className='max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-4xl container mx-auto px-4 py-12 flex flex-col gap-8 sticky h-[90vh] sm:h-screen top-0 z-20 items-center justify-center bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-3xl border border-gray-200'
         style={{
           y: nextSectionY,
           opacity: nextSectionOpacity,
@@ -105,14 +106,15 @@ export default function AboutSection() {
           members in your area and join our weekly runs.
         </p>
 
-        {/* Add a subtle animated graphic or icon */}
-        <div className='relative mx-auto flex items-center aspect-video h-40 md:h-64  w-full sm:w-80 md:w-3/4 mb-6'>
-          <div className='w-full h-full rounded-3xl overflow-hidden bg-gray-100 relative'>
-            {/* Video or Image */}
-            <img
+        <div className='relative mx-auto flex items-center aspect-video h-40 md:h-64 w-full sm:w-80 md:w-3/4 mb-6'>
+          <div className='relative w-full h-full rounded-3xl overflow-hidden bg-gray-100'>
+            <Image
               src='/images/smile-2.jpg'
               alt='Upcoming Events'
-              className='w-full h-full object-cover'
+              fill
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw'
+              className='object-cover'
+              loading='lazy'
             />
             <div className='absolute top-2 right-2 bg-black bg-opacity-50 rounded-full p-2 sm:p-3'>
               <Heart
@@ -123,7 +125,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* CTA Button */}
         <button className='bg-everyRunOrange text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-everyRunOrange/80 shadow-md transition-all transform hover:-translate-y-1'>
           Join Now
         </button>
