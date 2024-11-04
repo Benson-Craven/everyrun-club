@@ -55,30 +55,8 @@ export default function Navbar() {
                   <button className='flex items-center space-x-1 text-gray-600 hover:text-everyRunOrange px-3 py-2 rounded-md text-sm font-medium'>
                     <MapPin className='w-4 h-4' />
                     <span>Routes</span>
-                    <ChevronDown className='w-4 h-4' />
                   </button>
-                  <div className='absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out'>
-                    <div className='py-1'>
-                      <a
-                        href='#'
-                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-everyRunOrange/10'
-                      >
-                        Tan Track
-                      </a>
-                      <a
-                        href='#'
-                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-everyRunOrange/10'
-                      >
-                        Albert Park
-                      </a>
-                      <a
-                        href='#'
-                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-everyRunOrange/10'
-                      >
-                        Botanical Gardens
-                      </a>
-                    </div>
-                  </div>
+                  <div className='absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out'></div>
                 </div>
 
                 {/* Events Dropdown */}
