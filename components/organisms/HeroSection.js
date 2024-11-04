@@ -86,26 +86,33 @@ export default function HeroSection() {
 
   const segmentSize = 0.6 / messages.length
 
-  // Create transform functions for each message at the top level
-  const transforms = messages.map((_, index) => {
+  // Define separate arrays for opacity and y transforms
+  const opacityTransforms = []
+  const yTransforms = []
+
+  // Populate opacity and y transform arrays at the top level
+  for (let index = 0; index < messages.length; index++) {
     const startFade = index * segmentSize
     const fullOpacity = startFade + segmentSize * 0.2
     const endFade = startFade + segmentSize * 0.8
     const fadeOut = endFade + segmentSize * 0.2
 
-    return {
-      opacity: useTransform(
+    opacityTransforms.push(
+      useTransform(
         scrollYProgress,
         [startFade, fullOpacity, endFade, fadeOut],
         [index === 0 ? 1 : 0, 1, 1, 0]
-      ),
-      y: useTransform(
+      )
+    )
+
+    yTransforms.push(
+      useTransform(
         scrollYProgress,
         [startFade, fullOpacity, endFade, fadeOut],
         [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
-      ),
-    }
-  })
+      )
+    )
+  }
 
   return (
     <section className='relative h-[250vh]' ref={containerRef}>
@@ -115,8 +122,8 @@ export default function HeroSection() {
           <MessageComponent
             key={message.id}
             message={message}
-            opacity={transforms[index].opacity}
-            y={transforms[index].y}
+            opacity={opacityTransforms[index]}
+            y={yTransforms[index]}
             index={index}
           />
         ))}
