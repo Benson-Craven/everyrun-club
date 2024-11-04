@@ -53,9 +53,10 @@ export default function HeroSection() {
   })
 
   const segmentSize = 0.6 / messages.length
+  const opacityTransforms = []
+  const yTransforms = []
 
-  // Predefine the opacity and y transforms for each message
-  const transforms = messages.map((_, index) => {
+  messages.forEach((_, index) => {
     const startFade = index * segmentSize
     const fullOpacity = startFade + segmentSize * 0.2
     const endFade = startFade + segmentSize * 0.8
@@ -65,14 +66,14 @@ export default function HeroSection() {
       [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
       [index === 0 ? 1 : 0, 1, 1, 0]
     )
+    opacityTransforms.push(opacity)
 
     const y = useTransform(
       scrollYProgress,
       [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
       [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
     )
-
-    return { opacity, y }
+    yTransforms.push(y)
   })
 
   return (
@@ -84,8 +85,8 @@ export default function HeroSection() {
             key={message.id}
             className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
             style={{
-              opacity: transforms[index].opacity,
-              y: transforms[index].y,
+              opacity: opacityTransforms[index],
+              y: yTransforms[index],
             }}
           >
             <motion.div className='flex flex-col items-center text-center max-w-lg sm:max-w-xl md:max-w-2xl'>

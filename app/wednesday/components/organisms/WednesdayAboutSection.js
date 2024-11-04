@@ -118,7 +118,8 @@ export default function ExpandingSection() {
                 Send Us a Message
               </h3>
               <p className='text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6'>
-                Send us a message and we'll get back to you about any questions.
+                Send us a message and we&apos;ll get back to you about any
+                questions.
               </p>
               <div className='bg-[#1A1A1A] rounded-xl p-3 sm:p-4'>
                 <div className='flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4'>
@@ -133,12 +134,12 @@ export default function ExpandingSection() {
                     />
                   </div>
                   <p className='text-white text-xs sm:text-sm'>
-                    What's the go ahead tonight?
+                    What&apos;s the go ahead tonight?
                   </p>
                 </div>
                 <div className='ml-8 sm:ml-11 bg-[#222222] rounded-lg p-2 sm:p-3'>
                   <p className='text-gray-300 text-xs sm:text-sm'>
-                    Come meet us at the Oval tonight if you're up for it!
+                    Come meet us at the Oval tonight if you&apos;re up for it!
                   </p>
                 </div>
               </div>
@@ -151,7 +152,8 @@ export default function ExpandingSection() {
                 Olympic Oval Stadium
               </h3>
               <p className='text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6'>
-                Track who’s viewed your stories with detailed read receipts.
+                Track who&apos;s viewed your stories with detailed read
+                receipts.
               </p>
               <div className='grid grid-cols-3 gap-1 sm:gap-2 mb-3 sm:mb-4'>
                 {[
