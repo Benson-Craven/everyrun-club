@@ -45,6 +45,32 @@ const VideoBackground = ({ children }) => {
   )
 }
 
+const MessageComponent = ({ message, opacity, y, index }) => (
+  <motion.div
+    key={message.id}
+    className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
+    style={{
+      opacity,
+      y,
+    }}
+  >
+    <motion.div className='flex flex-col items-center text-center max-w-lg sm:max-w-xl md:max-w-2xl'>
+      <Heading level={1} className='text-2xl sm:text-3xl md:text-4xl font-bold'>
+        {message.title}
+      </Heading>
+      <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
+        {message.subtitle}
+      </p>
+      {index === 1 && (
+        <div className='flex flex-col sm:flex-row gap-4'>
+          <Button>Where to?</Button>
+          <Button variant='secondary'>View Events</Button>
+        </div>
+      )}
+    </motion.div>
+  </motion.div>
+)
+
 export default function HeroSection() {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -53,27 +79,26 @@ export default function HeroSection() {
   })
 
   const segmentSize = 0.6 / messages.length
-  const opacityTransforms = []
-  const yTransforms = []
 
-  messages.forEach((_, index) => {
+  // Create transform functions for each message at the top level
+  const transforms = messages.map((_, index) => {
     const startFade = index * segmentSize
     const fullOpacity = startFade + segmentSize * 0.2
     const endFade = startFade + segmentSize * 0.8
+    const fadeOut = endFade + segmentSize * 0.2
 
-    const opacity = useTransform(
-      scrollYProgress,
-      [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
-      [index === 0 ? 1 : 0, 1, 1, 0]
-    )
-    opacityTransforms.push(opacity)
-
-    const y = useTransform(
-      scrollYProgress,
-      [startFade, fullOpacity, endFade, endFade + segmentSize * 0.2],
-      [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
-    )
-    yTransforms.push(y)
+    return {
+      opacity: useTransform(
+        scrollYProgress,
+        [startFade, fullOpacity, endFade, fadeOut],
+        [index === 0 ? 1 : 0, 1, 1, 0]
+      ),
+      y: useTransform(
+        scrollYProgress,
+        [startFade, fullOpacity, endFade, fadeOut],
+        [index === 0 ? '0px' : '50vh', '0px', '0px', '-50vh']
+      ),
+    }
   })
 
   return (
@@ -81,32 +106,13 @@ export default function HeroSection() {
       <div className='sticky top-0 h-screen'>
         <VideoBackground />
         {messages.map((message, index) => (
-          <motion.div
+          <MessageComponent
             key={message.id}
-            className='absolute inset-0 h-full flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
-            style={{
-              opacity: opacityTransforms[index],
-              y: yTransforms[index],
-            }}
-          >
-            <motion.div className='flex flex-col items-center text-center max-w-lg sm:max-w-xl md:max-w-2xl'>
-              <Heading
-                level={1}
-                className='text-2xl sm:text-3xl md:text-4xl font-bold'
-              >
-                {message.title}
-              </Heading>
-              <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
-                {message.subtitle}
-              </p>
-              {index === 1 && (
-                <div className='flex flex-col sm:flex-row gap-4'>
-                  <Button>Where to?</Button>
-                  <Button variant='secondary'>View Events</Button>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
+            message={message}
+            opacity={transforms[index].opacity}
+            y={transforms[index].y}
+            index={index}
+          />
         ))}
       </div>
     </section>
