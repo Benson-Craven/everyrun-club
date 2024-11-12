@@ -26,9 +26,9 @@ const VideoBackground = () => {
           className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
         >
           {/* Use AV1 as the primary format */}
-          <source src='/videos/hero-NEW.av1.mp4' type='video/av1' />
+          <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
           {/* Fallback to the original mp4 format for compatibility */}
-          <source src='/videos/hero-running.mp4' type='video/mp4' />
+          {/* <source src='/videos/hero-running.mp4' type='video/mp4' /> */}
           {/* Show a message if the video format is unsupported */}
           Your browser does not support the video tag.
         </video>
