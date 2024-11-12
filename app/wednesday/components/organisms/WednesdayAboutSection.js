@@ -58,7 +58,7 @@ export default function ExpandingSection() {
           <div className='relative mx-auto flex items-center aspect-video h-40 md:h-64 sm:w-80 md:w-3/4 mb-6'>
             <div className='w-full h-full rounded-3xl overflow-hidden bg-gray-100 relative'>
               <Image
-                src='/images/smile-1.jpg'
+                src='/images/smile-1.avif'
                 alt='Upcoming Events'
                 fill
                 sizes='(max-width: 768px) 80vw, (max-width: 1200px) 75vw, 50vw'
@@ -94,7 +94,7 @@ export default function ExpandingSection() {
               </div>
               <div className='relative w-full sm:w-1/3 h-40 sm:h-auto mt-4 sm:mt-0 flex-shrink-0'>
                 <Image
-                  src='/images/running-behind.jpg'
+                  src='/images/running-behind.avif'
                   alt='Phone mockup'
                   fill
                   sizes='(max-width: 768px) 50vw, 25vw'
@@ -125,7 +125,7 @@ export default function ExpandingSection() {
                 <div className='flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4'>
                   <div className='relative w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-700'>
                     <Image
-                      src='/images/smile-2.jpg'
+                      src='/images/smile-2.avif'
                       alt='View 1'
                       fill
                       sizes='32px'
@@ -157,9 +157,9 @@ export default function ExpandingSection() {
               </p>
               <div className='grid grid-cols-3 gap-1 sm:gap-2 mb-3 sm:mb-4'>
                 {[
-                  '/images/smile-1.jpg',
-                  '/images/smile-2.jpg',
-                  '/images/smile-3.jpg',
+                  '/images/smile-1.avif',
+                  '/images/smile-2.avif',
+                  '/images/smile-3.avif',
                 ].map((src, idx) => (
                   <div key={idx} className='relative aspect-square'>
                     <Image

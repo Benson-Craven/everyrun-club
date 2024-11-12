@@ -7,29 +7,29 @@ const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    console.log('useEffect running')
+    // console.log('useEffect running')
 
     const updateMousePosition = (e) => {
-      console.log('Mouse moved to:', e.clientX, e.clientY)
+      // console.log('Mouse moved to:', e.clientX, e.clientY)
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
-    console.log('Adding event listener')
+    // console.log('Adding event listener')
     window.addEventListener('mousemove', updateMousePosition)
 
     return () => {
-      console.log('Cleanup: removing event listener')
+      // console.log('Cleanup: removing event listener')
       window.removeEventListener('mousemove', updateMousePosition)
     }
   }, [])
 
-  console.log('Current mouse position state:', mousePosition)
+  // console.log('Current mouse position state:', mousePosition)
   return mousePosition
 }
 
 const MouseFollower = () => {
   const { x, y } = useMousePosition()
-  console.log('MouseFollower rendering with position:', x, y)
+  // console.log('MouseFollower rendering with position:', x, y)
 
   return (
     <motion.div

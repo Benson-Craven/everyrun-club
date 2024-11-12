@@ -21,7 +21,7 @@ const VideoBackground = () => (
         playsInline
         className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
       >
-        <source src='/videos/hero-running.mp4' type='video/mp4' />
+        <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
       </video>
     </motion.div>
   </div>

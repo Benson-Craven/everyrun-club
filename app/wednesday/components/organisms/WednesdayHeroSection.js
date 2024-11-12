@@ -25,7 +25,12 @@ const VideoBackground = () => {
           playsInline
           className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
         >
-          <source src='/videos/hero-running.mp4' type='video/mp4' />
+          {/* Use AV1 as the primary format */}
+          <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
+          {/* Fallback to the original mp4 format for compatibility */}
+          {/* <source src='/videos/hero-running.mp4' type='video/mp4' /> */}
+          {/* Show a message if the video format is unsupported */}
+          Your browser does not support the video tag.
         </video>
       </motion.div>
     </div>

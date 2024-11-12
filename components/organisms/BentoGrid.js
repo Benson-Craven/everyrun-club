@@ -31,7 +31,7 @@ export default function BentoGrid() {
         <div
           className='md:col-span-2 row-span-2 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'
           style={{
-            backgroundImage: "url('/images/smile-3.jpg')",
+            backgroundImage: "url('/images/smile-3.avif')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

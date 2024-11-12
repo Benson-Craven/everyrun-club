@@ -93,7 +93,7 @@ const RunClubFeatures = () => {
           <div key={location.title}>
             <FeatureItem
               title={location.title}
-              profileImageSrc='/videos/hero-running.mp4'
+              // profileImageSrc='/videos/hero-running.mp4'
               badgeColor={location.badgeColor}
               distance={location.distance}
             />

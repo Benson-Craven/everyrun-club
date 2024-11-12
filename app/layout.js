@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className='antialiased font-leagueSpartan scroll-smooth'>
         <Navbar />
-        <MouseFollower />
+        {/* <MouseFollower /> */}
         {children}
         <Footer />
       </body>
