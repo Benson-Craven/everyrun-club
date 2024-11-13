@@ -39,7 +39,7 @@ const FAQ = () => {
     {
       question: 'Can dogs join the run?',
       answer:
-        'If there’s anything we love more than run club, it’s run club doggos. Just make sure they’re good around people (and swans - we’ve had a few dogs jump into Alber Park lake chasing the swans before) and just be mindful of them in a crowded space where not everyone might be the biggest fan.',
+        'If there’s anything we love more than run club, it’s run club doggos. Just make sure they’re good around people (and swans - we’ve had a few dogs jump into Albert Park lake chasing the swans before) and just be mindful of them in a crowded space where not everyone might be the biggest fan.',
     },
     {
       question: 'MERCH MERCH MERCH?',
@@ -50,17 +50,17 @@ const FAQ = () => {
 
   return (
     <section id='faq' className='py-10 px-5 lg:py-16 lg:px-20 bg-[#f0f0f0]'>
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 bg-everyRunOrange p-10 rounded-3xl'>
         <div>
-          <h2 className='text-3xl font-bold mb-4 text-everyRunOrange'>
+          <h2 className='text-3xl font-bold mb-4 text-white border-b-[1px] border-white'>
             Frequently Asked Questions
           </h2>
-          <p className='mb-4 text-gray-600'>
+          <p className='mb-4 text-white'>
             We&apos;re stoked you&apos;re curious about EveryRun Club. Here are
             some questions we get asked a lot - and some answers to get you
             started.
           </p>
-          <p className='text-gray-600'>
+          <p className='text-white'>
             If you&apos;re still looking, head on over to Instagram and chuck us
             a message.
           </p>
@@ -70,11 +70,11 @@ const FAQ = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className='border-b border-gray-300 cursor-pointer'
+                className='bg-white p-2 px-4 rounded-xl cursor-pointer'
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className='w-full text-left py-3 text-lg text-gray-800 focus:outline-none flex justify-between items-center'
+                  className='w-full text-left py-3 text-lg text-black focus:outline-none flex justify-between items-center'
                   aria-expanded={activeIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
@@ -87,19 +87,19 @@ const FAQ = () => {
                 </button>
                 <div
                   id={`faq-answer-${index}`}
-                  className={`grid transition-all duration-300 ease-in-out ${
+                  className={`grid transition-all duration-300 ease-in-out  ${
                     activeIndex === index
                       ? 'grid-rows-[1fr]'
                       : 'grid-rows-[0fr]'
                   }`}
                 >
-                  <div className='overflow-hidden'>
+                  <div className='overflow-hidden '>
                     <div
-                      className={`pt-2 pb-4 opacity-0 transition-opacity duration-300 ${
+                      className={`pt-2 pb-4 opacity-0 transition-opacity duration-300 border-t-[1px] border-everyRunOrange ${
                         activeIndex === index ? 'opacity-100' : ''
                       }`}
                     >
-                      <p className='text-gray-600'>{faq.answer}</p>
+                      <p className='text-black'>{faq.answer}</p>
                       {faq.link && (
                         <a href={faq.link} className='text-blue-500 underline'>
                           How do I get there?

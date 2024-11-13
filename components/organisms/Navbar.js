@@ -39,7 +39,7 @@ export default function Navbar() {
           <div className='flex justify-between items-center h-16'>
             {/* Logo */}
             <Link href='/'>
-              <div className='flex-shrink-0 flex items-center cursor-pointer'>
+              <div className='flex-shrink-0 flex items-center cursor-pointer transition-transform duration-200 hover:-translate-y-1'>
                 <Image
                   src='/images/logos/logo.svg'
                   alt='EveryRunClub'
@@ -91,7 +91,7 @@ export default function Navbar() {
               </div>
 
               {/* CTA Button */}
-              <button className='bg-everyRunOrange text-white px-4 py-2 rounded-3xl text-sm font-medium hover:bg-everyRunBlue transition-colors'>
+              <button className='flex items-center justify-center bg-[#fa6400] border border-transparent  shadow-sm shadow-black/5 box-border text-white cursor-pointer   font-semibold leading-[1.25] min-h-[3rem] px-[calc(1.5rem-1px)] py-[calc(.875rem-1px)] transition-all duration-250 hover:bg-[#fb8332] hover:shadow-md hover:shadow-black/10 hover:-translate-y-px active:bg-[#c85000] active:shadow-sm active:shadow-black/10 active:translate-y-0 rounded-full'>
                 Join The Crew
               </button>
             </div>

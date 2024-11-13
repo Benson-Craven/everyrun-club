@@ -26,7 +26,7 @@ function Number({ n }) {
 export default function BentoGrid() {
   return (
     <div className='container mx-auto p-4 mt-10'>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto'>
         {/* Large feature box */}
         <div
           className='md:col-span-2 row-span-2 rounded-xl p-6 aspect-square md:aspect-auto flex flex-col justify-between text-white transition-transform hover:scale-[1.02]'
@@ -66,7 +66,7 @@ export default function BentoGrid() {
             loop
             muted
             playsInline
-            src='/videos/hero-running.mp4'
+            src='/videos/hero-NEW.av1.mp4'
             alt='Group Run'
             className='object-cover w-full h-full transition-transform group-hover:scale-105'
           />

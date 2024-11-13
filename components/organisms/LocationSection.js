@@ -3,6 +3,7 @@ import { Camera } from 'lucide-react'
 import React, { useRef } from 'react'
 import Heading from '../atoms/Typography'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import BlogShowcase from './BlogSection'
 
 const FeatureItem = ({ title, profileImageSrc, badgeColor, distance }) => (
   <div className='flex items-center space-x-4 md:space-x-8 mb-10'>
@@ -46,7 +47,7 @@ const RunClubFeatures = () => {
   })
 
   const headerScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7])
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0])
 
   return (
     <div ref={containerRef} className='relative'>
@@ -61,8 +62,9 @@ const RunClubFeatures = () => {
           Where do we like to <span className='text-everyRunOrange'>run</span>?
         </Heading>
       </motion.div>
+      <BlogShowcase />
 
-      <div className='max-w-4xl mx-auto px-4 p-5 z-40'>
+      {/* <div className='max-w-4xl mx-auto px-4 p-5 z-40'>
         {[
           {
             title: 'Fawkner Park',
@@ -99,7 +101,7 @@ const RunClubFeatures = () => {
             />
           </div>
         ))}
-      </div>
+      </div> */}
       <div className='h-[15vh]'></div>
     </div>
   )

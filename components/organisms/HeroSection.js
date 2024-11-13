@@ -28,7 +28,7 @@ const VideoBackground = () => {
           {/* Use AV1 as the primary format */}
           <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
           {/* Fallback to the original mp4 format for compatibility */}
-          {/* <source src='/videos/hero-running.mp4' type='video/mp4' /> */}
+          <source src='/videos/hero-running.mp4' type='video/mp4' />
           {/* Show a message if the video format is unsupported */}
           Your browser does not support the video tag.
         </video>
@@ -56,7 +56,7 @@ const HeroSection = () => {
   const y2 = useTransform(
     scrollYProgress,
     [0.3, 0.5, 0.7],
-    ['50%', '0%', '-20%']
+    ['50%', '0%', '-50%']
   )
 
   return (
@@ -86,7 +86,9 @@ const HeroSection = () => {
             Come along and join us
           </p>
           <div className='flex flex-col sm:flex-row gap-4'>
-            <Button>Run With Us</Button>
+            <button className='flex items-center justify-center bg-[#fa6400] border border-transparent  shadow-sm shadow-black/5 box-border text-white cursor-pointer   font-semibold leading-[1.25] min-h-[3rem] px-[calc(1.5rem-1px)] py-[calc(.875rem-1px)] transition-all duration-250 hover:bg-[#fb8332] hover:shadow-md hover:shadow-black/10 hover:-translate-y-px active:bg-[#c85000] active:shadow-sm active:shadow-black/10 active:translate-y-0 rounded-full'>
+              Run With Us
+            </button>
             <Button variant='secondary'>View Upcoming Events</Button>
           </div>
         </motion.div>
