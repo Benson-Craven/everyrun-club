@@ -22,6 +22,8 @@ const VideoBackground = () => (
         className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
       >
         <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
+        Your browser does not support the video tag.
+        <source src='/videos/hero-running.mp4' type='video/mp4' />
       </video>
     </motion.div>
   </div>
@@ -41,7 +43,9 @@ const MessageComponent = ({ message }) => (
       </p>
       <div className='flex flex-col sm:flex-row gap-4'>
         <Link href='/wednesday'>
-          <Button variant='primary'>Find Out More</Button>
+          <button className='flex items-center justify-center bg-[#fa6400] border border-transparent  shadow-sm shadow-black/5 box-border text-white cursor-pointer   font-semibold leading-[1.25] min-h-[3rem] px-[calc(1.5rem-1px)] py-[calc(.875rem-1px)] transition-all duration-250 hover:bg-[#fb8332] hover:shadow-md hover:shadow-black/10 hover:-translate-y-px active:bg-[#c85000] active:shadow-sm active:shadow-black/10 active:translate-y-0 rounded-full'>
+            Join The Crew
+          </button>
         </Link>
       </div>
     </div>

@@ -5,10 +5,12 @@ import Heading from '../atoms/Typography'
 const BlogCard = ({ image, category, title, description }) => {
   const [isHovered, setIsHovered] = useState(false)
   return (
-    <div
-      className='relative group overflow-hidden rounded-[2.5rem] rounded-tl-lg rounded-tr-lg bg-white cursor-pointer'
+    <motion.div
+      className='relative group overflow-hidden rounded-[2.5rem] bg-white cursor-pointer'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -10 }}
+      transition={{ duration: 0.3 }}
     >
       <div className='relative aspect-square overflow-hidden'>
         <img
@@ -21,24 +23,26 @@ const BlogCard = ({ image, category, title, description }) => {
         <div className='absolute top-6 left-6'>
           <span
             className={`
-      px-4 py-2 text-sm font-medium rounded-full text-black
-      ${category === 'South Yarra' ? 'bg-[#E8F3DC]' : ''}
-      ${category === 'St. Kilda' ? 'bg-[#FFEBE6]' : ''}
-      ${category === 'Carlton North' ? 'bg-[#E3F2FD]' : ''}
-      ${category === 'Caulfield North' ? 'bg-[#FFF5CC]' : ''}
-      ${category === 'CBD' ? 'bg-[#E0F7FA]' : ''}
-    `}
+              px-4 py-2 text-sm font-medium rounded-full text-black
+              ${category === 'South Yarra' ? 'bg-[#E8F3DC]' : ''}
+              ${category === 'St. Kilda' ? 'bg-[#FFEBE6]' : ''}
+              ${category === 'Carlton North' ? 'bg-[#E3F2FD]' : ''}
+              ${category === 'Caulfield North' ? 'bg-[#FFF5CC]' : ''}
+              ${category === 'CBD' ? 'bg-[#E0F7FA]' : ''}
+            `}
           >
             {category}
           </span>
         </div>
 
         {/* Arrow button with tilt animation */}
-        <div className='absolute bottom-6 right-6'>
-          <motion.button
-            className='w-12 h-12 bg-black rounded-full flex items-center justify-center relative'
-            whileHover={{ rotate: 10, scale: 1.1 }}
-          >
+        <motion.div
+          className='absolute bottom-6 right-6'
+          initial={{ rotate: 0 }}
+          animate={isHovered ? { rotate: -20 } : { rotate: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <button className='w-12 h-12 bg-black rounded-full flex items-center justify-center'>
             <svg
               width='24'
               height='24'
@@ -57,31 +61,34 @@ const BlogCard = ({ image, category, title, description }) => {
                 strokeWidth='3'
               />
             </svg>
-          </motion.button>
+          </button>
 
-          {/* Tooltip */}
+          {/* Cloud-like Tooltip */}
           <AnimatePresence>
             {isHovered && (
               <motion.div
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
-                className='absolute bottom-16 right-1/2 transform translate-x-1/2 bg-black text-white text-xs px-3 py-1 rounded-md shadow-lg'
+                className='absolute bottom-20 right-1/2 transform translate-x-1/2 bg-white text-gray-800 text-xs px-4 py-2 rounded-full shadow-md border border-gray-200'
               >
-                How do I get there?
+                <div className='relative'>
+                  <p>How do I get here?</p>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
+
       <div className='p-8 space-y-4'>
         <Heading level={3} colour={'#000000'}>
           {title}
         </Heading>
         <p className='text-gray-600'>{description}</p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -87,7 +87,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Achievements */}
-        <div className='bg-everyRunBlue hover:bg-everyRunBlue/80 rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all  hover:scale-[1.02]'>
+        {/* <div className='bg-everyRunBlue hover:bg-everyRunBlue/80 rounded-xl p-6 aspect-square flex flex-col justify-between  transition-all  hover:scale-[1.02]'>
           <Map className='w-6 h-6 text-blue-600' />
           <div>
             <h3 className='text-lg font-semibold text-blue-900 mt-4'>
@@ -97,10 +97,10 @@ export default function BentoGrid() {
               See where we love to run across Melbourne
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Events Calendar */}
-        <div className='md:col-span-2 bg-violet-100 rounded-xl p-6 flex flex-col justify-between hover:bg-violet-200 transition-all  hover:scale-[1.02]'>
+        {/* <div className='md:col-span-2 bg-violet-100 rounded-xl p-6 flex flex-col justify-between hover:bg-violet-200 transition-all  hover:scale-[1.02]'>
           <Calendar className='w-6 h-6 text-violet-600' />
           <div>
             <h3 className='text-lg font-semibold text-violet-900 mt-4'>
@@ -117,7 +117,7 @@ export default function BentoGrid() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
