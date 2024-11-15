@@ -137,9 +137,9 @@ export default function AboutSection() {
                 </h2>
 
                 <p className='text-gray-400 text-sm sm:text-base max-w-2xl leading-relaxed'>
-                  Be part of Melbourne's most vibrant running community. Whether
-                  you're just starting out or training for a marathon, you'll
-                  find your pace with us.
+                  Be part of Melbourne&apos;s most vibrant running community.
+                  Whether you&apos;re just starting out or training for a
+                  marathon, you&apos;ll find your pace with us.
                 </p>
               </div>
 
