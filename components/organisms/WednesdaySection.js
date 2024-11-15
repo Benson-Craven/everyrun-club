@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Button from '../atoms/Button'
 import Heading from '../atoms/Typography'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const message = {
@@ -12,19 +13,21 @@ const message = {
 }
 
 const VideoBackground = () => (
-  <div className='absolute inset-0 overflow-hidden p-2 sm:p-4 md:p-[13px] z-0'>
-    <motion.div className='w-full h-full'>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
-      >
-        <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
-        Your browser does not support the video tag.
-        <source src='/videos/hero-running.mp4' type='video/mp4' />
-      </video>
+  <div className='absolute inset-0 p-2 sm:p-4 md:p-[13px] z-0 bg-inherit'>
+    {/* Image container */}
+    <motion.div
+      className='relative w-full h-full rounded-3xl overflow-hidden'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Image
+        src={'/images/running-behind.avif'}
+        alt={'Video Background'}
+        fill
+        className='object-cover brightness-75'
+        priority
+      />
     </motion.div>
   </div>
 )

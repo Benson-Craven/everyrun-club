@@ -55,11 +55,16 @@ export default function Navbar() {
               <div className='flex space-x-4'>
                 {/* Routes Dropdown */}
                 <div className='relative group'>
-                  <button className='flex items-center space-x-1 text-gray-600 hover:text-everyRunOrange px-3 py-2 rounded-md text-sm font-medium'>
-                    <MapPin className='w-4 h-4' />
-                    <span>Routes</span>
-                  </button>
-                  <div className='absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out'></div>
+                  <Link href='/#locations'>
+                    <button
+                      type='button'
+                      href='#locations'
+                      className='flex items-center space-x-1 text-gray-600 hover:text-everyRunOrange px-3 py-2 rounded-md text-sm font-medium'
+                    >
+                      <MapPin className='w-4 h-4' />
+                      <span>Routes</span>
+                    </button>
+                  </Link>
                 </div>
 
                 {/* Events Dropdown */}
@@ -91,7 +96,7 @@ export default function Navbar() {
               </div>
 
               {/* CTA Button */}
-              <button className='flex items-center justify-center bg-[#fa6400] border border-transparent  shadow-sm shadow-black/5 box-border text-white cursor-pointer   font-semibold leading-[1.25] min-h-[3rem] px-[calc(1.5rem-1px)] py-[calc(.875rem-1px)] transition-all duration-250 hover:bg-[#fb8332] hover:shadow-md hover:shadow-black/10 hover:-translate-y-px active:bg-[#c85000] active:shadow-sm active:shadow-black/10 active:translate-y-0 rounded-full'>
+              <button className='flex items-center justify-center bg-[#fa6400] border border-transparent  shadow-sm shadow-black/5 box-border text-white cursor-pointer   font-semibold leading-[1.25] min-h-[3rem] px-[calc(1.5rem-1px)] py-[calc(.875rem-1px)] transition-all duration-250 hover:bg-[#fb8332] hover:shadow-md hover:shadow-black/10 hover:-translate-y-px active:bg-[#c85000] active:shadow-sm active:shadow-black/10 active:translate-y-0 rounded-3xl'>
                 Join The Crew
               </button>
             </div>

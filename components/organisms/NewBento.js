@@ -81,6 +81,8 @@ const NewBento = () => {
                   alt={bentoItems[0].title}
                   className='w-full h-full object-cover opacity-80'
                   variants={imgVariants}
+                  initial='initial'
+                  whileHover='hover'
                   transition={{ duration: 0.2 }}
                 />
               </motion.div>

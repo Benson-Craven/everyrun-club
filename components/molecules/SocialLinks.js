@@ -2,8 +2,8 @@ import SocialIcon from '../atoms/SocialIcon'
 
 export default function SocialLinks() {
   const socialPlatforms = [
-    { platform: 'facebook', href: 'https://facebook.com' },
-    { platform: 'twitter', href: 'https://twitter.com' },
+    // { platform: 'facebook', href: 'https://facebook.com' },
+    // { platform: 'twitter', href: 'https://twitter.com' },
     { platform: 'instagram', href: 'https://instagram.com' },
     { platform: 'youtube', href: 'https://youtube.com' },
   ]

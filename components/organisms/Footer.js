@@ -41,13 +41,13 @@ export default function Footer() {
   return (
     <footer className='bg-gray-900 text-gray-400 '>
       <div className='container mx-auto px-4 py-12'>
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-8 mb-8'>
+        {/* <div className='grid grid-cols-2 md:grid-cols-4 gap-8 mb-8'>
           {footerColumns.map((column) => (
             <FooterColumn key={column.title} {...column} />
           ))}
-        </div>
+        </div> */}
 
-        <div className='border-t border-gray-800 pt-8 mt-8'>
+        <div className=''>
           <div className='flex flex-col md:flex-row justify-between items-center'>
             <div className='mb-4 md:mb-0'>
               <img
@@ -58,10 +58,10 @@ export default function Footer() {
 
               <p className='text-sm'>
                 EveryRun Club acknowledges the Traditional Custodians, and
-                Elders past, present and future, of the lands on which we work,
-                live and run, and further acknowledge, thank and pay respect to
-                the Traditional Owners of the land in the multitude of
-                Aboriginal countries across Australia and other nations.
+                Elders past, present and future, of the lands on which we run,
+                and further acknowledge, thank and pay respect to the
+                Traditional Owners of the land in the multitude of Aboriginal
+                countries across Australia and other nations.
               </p>
             </div>
 
@@ -72,7 +72,6 @@ export default function Footer() {
             <div className='flex flex-wrap justify-center md:justify-start gap-4 mb-4'>
               <FooterLink href='/privacy'>Privacy Policy</FooterLink>
               <FooterLink href='/terms'>Terms of Service</FooterLink>
-              <FooterLink href='/cookies'>Cookie Policy</FooterLink>
               <FooterLink href='https://codebybenson.netlify.app'>
                 Made by <span className='underline'>Code by Benson</span>{' '}
                 &#x2B50;

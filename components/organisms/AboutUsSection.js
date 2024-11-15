@@ -1,7 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { Dumbbell, Heart, MessageCircle, MapPinHouse } from 'lucide-react'
+import { Dumbbell, Users, Heart } from 'lucide-react'
 import Heading from '@/components/atoms/Typography'
 import { useSpring, animated } from 'react-spring'
 import Image from 'next/image'
@@ -92,95 +92,61 @@ export default function AboutSection() {
           </motion.p>
         </motion.div>
 
-        <motion.div className='container mx-auto p-4 z-50 mb-[20vh]'>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto'>
-            {/* First Card */}
-            <div className='md:col-span-2 bg-[#111111] rounded-3xl p-6 sm:p-8 relative min-h-[400px] flex flex-col sm:flex-row'>
-              <div className='flex-1'>
-                <span className='text-everyRunOrange text-xs sm:text-sm mb-2 sm:mb-4 block'>
-                  Higher Intensity
-                </span>
-                <div className='text-white text-2xl sm:text-3xl font-bold mb-2 sm:mb-4 max-w-md'>
-                  <Heading level={2}>
-                    Mid-week session to improve your fitness goals
-                  </Heading>
-                </div>
-              </div>
-              <div className='relative w-full sm:w-1/3 h-40 sm:h-auto mt-4 sm:mt-0 flex-shrink-0'>
+        <motion.div
+          className='container mx-auto p-4 z-50 mb-8'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className='max-w-6xl mx-auto'>
+            <motion.div
+              className='bg-[#111111] rounded-3xl p-6 sm:p-8 relative overflow-hidden group'
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              {/* Image Section */}
+              <div className='relative w-full h-[300px] sm:h-[400px] rounded-2xl overflow-hidden mb-6'>
                 <Image
                   src='/images/running-behind.avif'
-                  alt='Phone mockup'
+                  alt='Running community'
                   fill
-                  sizes='(max-width: 768px) 50vw, 25vw'
-                  className='object-cover rounded-3xl'
-                  loading='lazy'
+                  sizes='(max-width: 1200px) 100vw, 1200px'
+                  className='object-cover transition-transform duration-700 group-hover:scale-105'
+                  priority
                 />
-              </div>
-            </div>
+                {/* Gradient Overlay */}
+                <div className='absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-90' />
 
-            {/* Second Card */}
-            <div className='bg-[#111111] rounded-3xl p-6 sm:p-8 relative'>
-              <MessageCircle className='w-5 sm:w-6 h-5 sm:h-6 text-[#0066FF] mb-2 sm:mb-4' />
-              <h3 className='text-white text-lg sm:text-xl font-semibold mb-1 sm:mb-2'>
-                Send Us a Message
-              </h3>
-              <p className='text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6'>
-                Send us a message and we&apos;ll get back to you about any
-                questions.
-              </p>
-              <div className='bg-[#1A1A1A] rounded-xl p-3 sm:p-4'>
-                <div className='flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4'>
-                  <div className='relative w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-700'>
-                    <Image
-                      src='/images/smile-2.avif'
-                      alt='View 1'
-                      fill
-                      sizes='32px'
-                      className='rounded-full object-cover'
-                      loading='lazy'
-                    />
-                  </div>
-                  <p className='text-white text-xs sm:text-sm'>
-                    What&apos;s the go ahead tonight?
-                  </p>
-                </div>
-                <div className='ml-8 sm:ml-11 bg-[#222222] rounded-lg p-2 sm:p-3'>
-                  <p className='text-gray-300 text-xs sm:text-sm'>
-                    Come meet us at the Oval tonight if you&apos;re up for it!
-                  </p>
+                {/* Icon Circle */}
+                <div className='absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group/icon'>
+                  <Heart className='w-6 h-6 text-white transform group-hover/icon:rotate-45 transition-transform duration-300' />
                 </div>
               </div>
-            </div>
 
-            {/* Third Card */}
-            <div className='bg-[#111111] rounded-3xl p-6 sm:p-8 relative'>
-              <MapPinHouse className='w-5 sm:w-6 h-5 sm:h-6 text-[#0066FF] mb-2 sm:mb-4' />
-              <h3 className='text-white text-lg sm:text-xl font-semibold mb-1 sm:mb-2'>
-                Olympic Oval Stadium
-              </h3>
-              <p className='text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6'>
-                Track who&apos;s viewed your stories with detailed read
-                receipts.
-              </p>
-              <div className='grid grid-cols-3 gap-1 sm:gap-2 mb-3 sm:mb-4'>
-                {[
-                  '/images/smile-1.avif',
-                  '/images/smile-2.avif',
-                  '/images/smile-3.avif',
-                ].map((src, idx) => (
-                  <div key={idx} className='relative aspect-square'>
-                    <Image
-                      src={src}
-                      alt={`View ${idx + 1}`}
-                      fill
-                      sizes='(max-width: 768px) 33vw, 25vw'
-                      className='rounded-lg object-cover'
-                      loading='lazy'
-                    />
-                  </div>
-                ))}
+              {/* Content Section */}
+              <div className='relative z-10'>
+                <div className='flex items-center gap-2 mb-4'>
+                  <Users className='w-6 h-6 text-everyRunOrange' />
+                  <span className='text-everyRunOrange text-sm tracking-wide uppercase'>
+                    Active Community
+                  </span>
+                </div>
+
+                <h2 className='text-white text-3xl sm:text-4xl font-bold mb-3'>
+                  Join <Number n={11000} />+ runners
+                </h2>
+
+                <p className='text-gray-400 text-sm sm:text-base max-w-2xl leading-relaxed'>
+                  Be part of Melbourne's most vibrant running community. Whether
+                  you're just starting out or training for a marathon, you'll
+                  find your pace with us.
+                </p>
               </div>
-            </div>
+
+              {/* Decorative elements */}
+              <div className='absolute bottom-0 left-0 w-96 h-96 bg-[#0066FF] opacity-5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2' />
+              <div className='absolute top-0 right-0 w-96 h-96 bg-everyRunOrange opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
+            </motion.div>
           </div>
         </motion.div>
       </div>

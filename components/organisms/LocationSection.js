@@ -50,7 +50,7 @@ const RunClubFeatures = () => {
   const headerOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0])
 
   return (
-    <div ref={containerRef} className='relative'>
+    <div id='locations' ref={containerRef} className='relative'>
       <motion.div
         className='sticky top-0 text-center h-screen flex items-center justify-center container mx-auto'
         style={{

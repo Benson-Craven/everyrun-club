@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../../../components/atoms/Button'
 import Heading from '../../../../components/atoms/Typography'
+import Image from 'next/image'
 
 const VideoBackground = () => {
   const videoRef = useRef(null)
@@ -18,20 +19,27 @@ const VideoBackground = () => {
       ref={videoRef}
     >
       <motion.div style={{ scale }} className='w-full h-full'>
-        <video
+        {/* <video
           autoPlay
           loop
           muted
           playsInline
+          poster='/images/running-behind.avif'
           className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
-        >
-          {/* Use AV1 as the primary format */}
-          <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
-          {/* Fallback to the original mp4 format for compatibility */}
-          {/* <source src='/videos/hero-running.mp4' type='video/mp4' /> */}
-          {/* Show a message if the video format is unsupported */}
-          Your browser does not support the video tag.
-        </video>
+        > */}
+        {/* Use AV1 as the primary format */}
+        {/* <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' /> */}
+        {/* Fallback to the original mp4 format for compatibility */}
+        {/* <source src='/videos/hero-running.mp4' type='video/mp4' /> */}
+        {/* Show a message if the video format is unsupported */}
+        Your browser does not support the video tag.
+        {/* </video> */}
+        <Image
+          src={'/images/running-behind.avif'}
+          alt={'Video Background'}
+          fill
+          className='object-cover brightness-75 p-[13px] rounded-3xl'
+        />
       </motion.div>
     </div>
   )
@@ -89,11 +97,9 @@ const HeroSection = () => {
             level={1}
             className='text-2xl sm:text-3xl md:text-4xl font-bold'
           >
-            Join Our Community
+            Join Our Wednesday Sessions
           </Heading>
-          <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
-            Come along and join us.
-          </p>
+
           <div className='flex flex-col sm:flex-row gap-4'>
             <Button>Where to?</Button>
             <Button variant='secondary'>View Events</Button>
