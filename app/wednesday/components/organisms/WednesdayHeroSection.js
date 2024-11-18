@@ -63,10 +63,13 @@ const WednesdayHeroSection = () => {
 
         {/* First Message */}
         <motion.div
-          className='absolute inset-0 flex flex-col justify-center items-center text-white px-4 z-30'
+          className='absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-30'
           style={{ opacity: opacity1, y: y1 }}
         >
-          <Heading level={1}>Welcome to our Wednesdays</Heading>
+          <Heading level={1}>
+            Welcome to our{' '}
+            <span className='text-everyRunOrange'>Wednesdays</span>
+          </Heading>
           <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl'>
             Come along and join us
           </p>

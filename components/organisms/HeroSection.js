@@ -52,7 +52,8 @@ const HeroSection = () => {
     ['0%', '-20%', '-50%']
   )
 
-  const opacity2 = useTransform(scrollYProgress, [0.3, 0.475, 0.6], [0, 1, 0])
+  const opacity2 = useTransform(scrollYProgress, [0.2, 0.45, 0.6], [0, 1, 0])
+
   const y2 = useTransform(
     scrollYProgress,
     [0.3, 0.5, 0.7],
