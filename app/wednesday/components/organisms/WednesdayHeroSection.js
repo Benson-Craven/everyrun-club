@@ -3,7 +3,6 @@ import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../../../components/atoms/Button'
 import Heading from '../../../../components/atoms/Typography'
-import Image from 'next/image'
 
 const VideoBackground = () => {
   const videoRef = useRef(null)
@@ -15,37 +14,27 @@ const VideoBackground = () => {
 
   return (
     <div
-      className='absolute inset-0 overflow-hidden p-2 sm:p-4 md:p-[13px] z-0'
+      className='absolute inset-0 overflow-hidden p-[13px] z-0'
       ref={videoRef}
     >
       <motion.div style={{ scale }} className='w-full h-full'>
-        {/* <video
+        <video
           autoPlay
           loop
           muted
           playsInline
-          poster='/images/running-behind.avif'
           className='flex items-center rounded-3xl w-full h-full object-cover brightness-75'
-        > */}
-        {/* Use AV1 as the primary format */}
-        {/* <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' /> */}
-        {/* Fallback to the original mp4 format for compatibility */}
-        {/* <source src='/videos/hero-running.mp4' type='video/mp4' /> */}
-        {/* Show a message if the video format is unsupported */}
-        Your browser does not support the video tag.
-        {/* </video> */}
-        <Image
-          src={'/images/running-behind.avif'}
-          alt={'Video Background'}
-          fill
-          className='object-cover brightness-75 p-[13px] rounded-3xl'
-        />
+        >
+          <source src='/videos/hero-NEW.av1.mp4' type='video/mp4' />
+          <source src='/videos/hero-running.mp4' type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
       </motion.div>
     </div>
   )
 }
 
-const HeroSection = () => {
+const WednesdayHeroSection = () => {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -60,54 +49,51 @@ const HeroSection = () => {
     ['0%', '-20%', '-50%']
   )
 
-  const opacity2 = useTransform(scrollYProgress, [0.3, 0.45, 0.6], [0, 1, 0])
+  const opacity2 = useTransform(scrollYProgress, [0.3, 0.475, 0.6], [0, 1, 0])
   const y2 = useTransform(
     scrollYProgress,
     [0.3, 0.5, 0.7],
-    ['50%', '0%', '-20%']
+    ['50%', '-10%', '-40%']
   )
 
   return (
-    <section className='relative h-[300vh] sm:h-[250vh]' ref={containerRef}>
-      <div className='sticky top-0 h-screen'>
+    <section className='relative h-[200vh]' ref={containerRef}>
+      <div className='sticky top-0 h-screen z-20'>
         <VideoBackground />
 
         {/* First Message */}
         <motion.div
-          className='absolute inset-0 flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
+          className='absolute inset-0 flex flex-col justify-center items-center text-white px-4 z-30'
           style={{ opacity: opacity1, y: y1 }}
         >
-          <Heading
-            level={1}
-            className='text-2xl sm:text-3xl md:text-4xl font-bold'
-          >
-            Fancy more of a challenge?
-          </Heading>
-          <p className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-prose'>
-            Come along and join us on a Wednesday night!
+          <Heading level={1}>Welcome to our Wednesdays</Heading>
+          <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl'>
+            Come along and join us
           </p>
+          <div className='flex flex-col sm:flex-row gap-4'>
+            <Button variant='secondary'>Where To Meet</Button>
+          </div>
         </motion.div>
 
         {/* Second Message */}
-        <motion.div
-          className='absolute inset-0 flex flex-col justify-center items-center text-white px-6 sm:px-8 md:px-4 z-30'
+        {/* <motion.div
+          className='absolute inset-0 flex flex-col justify-center items-center text-white px-4 z-30'
           style={{ opacity: opacity2, y: y2 }}
         >
-          <Heading
-            level={1}
-            className='text-2xl sm:text-3xl md:text-4xl font-bold'
-          >
-            Join Our Wednesday Sessions
-          </Heading>
-
+          <Heading level={1}>Join Us  Community</Heading>
+          <p className='text-xl md:text-2xl mb-8 text-center max-w-2xl'>
+            Come along and join us
+          </p>
           <div className='flex flex-col sm:flex-row gap-4'>
-            <Button>Where to?</Button>
-            <Button variant='secondary'>View Events</Button>
+            <button className='flex items-center justify-center bg-[#fa6400] border border-transparent  shadow-sm shadow-black/5 box-border text-white cursor-pointer   font-semibold leading-[1.25] min-h-[3rem] px-[calc(1.5rem-1px)] py-[calc(.875rem-1px)] transition-all duration-250 hover:bg-[#fb8332] hover:shadow-md hover:shadow-black/10 hover:-translate-y-px active:bg-[#c85000] active:shadow-sm active:shadow-black/10 active:translate-y-0 rounded-full'>
+              Run With Us
+            </button>
+            <Button variant='secondary'>View Upcoming Events</Button>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )
 }
 
-export default HeroSection
+export default WednesdayHeroSection

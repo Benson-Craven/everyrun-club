@@ -49,7 +49,7 @@ const FAQ = () => {
   ]
 
   return (
-    <section id='faq' className='py-10 px-5 lg:py-16 lg:px-20 bg-[#f0f0f0]'>
+    <section id='faq' className='p-[13px] bg-[#f0f0f0]'>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 bg-everyRunOrange p-10 rounded-3xl'>
         <div>
           <h2 className='text-3xl font-bold mb-4 text-white border-b-[1px] border-white'>

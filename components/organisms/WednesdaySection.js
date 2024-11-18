@@ -13,7 +13,7 @@ const message = {
 }
 
 const VideoBackground = () => (
-  <div className='absolute inset-0 p-2 sm:p-4 md:p-[13px] z-0 bg-inherit'>
+  <div className='absolute inset-0 p-[13px] z-0 bg-inherit'>
     {/* Image container */}
     <motion.div
       className='relative w-full h-full rounded-3xl overflow-hidden'

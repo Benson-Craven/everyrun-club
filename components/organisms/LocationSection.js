@@ -47,7 +47,7 @@ const RunClubFeatures = () => {
   })
 
   const headerScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7])
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0])
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
 
   return (
     <div id='locations' ref={containerRef} className='relative'>
