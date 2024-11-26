@@ -72,7 +72,7 @@ export default function Footer() {
             <div className='flex flex-wrap justify-center md:justify-start gap-4 mb-4'>
               <FooterLink href='/privacy'>Privacy Policy</FooterLink>
               <FooterLink href='/terms'>Terms of Service</FooterLink>
-              <FooterLink href='https://codebybenson.netlify.app'>
+              <FooterLink href='https://benson.codes'>
                 Made by <span className='underline'>Code by Benson</span>{' '}
                 &#x2B50;
               </FooterLink>
